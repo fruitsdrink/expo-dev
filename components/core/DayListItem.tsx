@@ -8,7 +8,7 @@ interface Props {
 }
 export const DayListItem: React.FC<Props> = ({ day }) => {
   return (
-    <Link href={`/day${day}`} asChild>
+    <Link href={`/(days)/day${day}`} asChild>
       <Pressable style={styles.box}>
         <Text style={styles.text}>{day}</Text>
       </Pressable>
