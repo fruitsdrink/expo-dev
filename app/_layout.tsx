@@ -12,6 +12,7 @@ import {
 } from "@expo-google-fonts/poppins";
 import * as SplashScreen from "expo-splash-screen";
 import { Stack } from "expo-router";
+import "react-native-reanimated";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -37,7 +38,7 @@ export default function HomeScreen() {
 
   return (
     <Stack>
-      <Stack.Screen name="index" options={{ title: "ExpoDev" }} />
+      <Stack.Screen name="index" options={{ headerTitle: "ExpoDev" }} />
     </Stack>
   );
 }
