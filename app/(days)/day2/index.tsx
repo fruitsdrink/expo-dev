@@ -29,7 +29,7 @@ export default function Day2Screen() {
     <DayHome
       title="Day 2: Onboarding"
       description={desc}
-      link="/day2/onboarding"
+      buttons={[{ link: "/day2/onboarding" }]}
     />
   );
 }

@@ -17,8 +17,12 @@ export default function Day3Screen() {
     <DayHome
       title="Day3 markdown"
       description={markdown}
-      linkText="Go to editor"
-      link="/day3/editor"
+      buttons={[
+        {
+          text: "Go to editor",
+          link: "/day3/editor",
+        },
+      ]}
     />
   );
 }

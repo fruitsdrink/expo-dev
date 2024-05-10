@@ -7,14 +7,12 @@ import { fonts } from "@/constants";
 interface DayHomeProps {
   title: string;
   description: string;
-  linkText?: string;
-  link: string;
+  buttons?: { text?: string; link: string }[];
 }
 export const DayHome: React.FC<DayHomeProps> = ({
   title,
   description,
-  linkText,
-  link,
+  buttons,
 }) => {
   return (
     <>
@@ -33,26 +31,36 @@ export const DayHome: React.FC<DayHomeProps> = ({
           <MarkdownDisplay>{description}</MarkdownDisplay>
         </View>
 
-        <Link href={link} asChild>
-          <Pressable
+        {buttons && (
+          <View
             style={{
-              marginHorizontal: 40,
-              padding: 10,
-              alignItems: "center",
-              backgroundColor: "red",
-              borderRadius: 100,
+              gap: 8,
             }}
           >
-            <Text
-              style={{
-                fontFamily: fonts.PoppinsSemiBold,
-                color: "white",
-              }}
-            >
-              {linkText || "Go to demo"}
-            </Text>
-          </Pressable>
-        </Link>
+            {buttons.map((btn, index) => (
+              <Link href={btn.link} asChild key={index}>
+                <Pressable
+                  style={{
+                    marginHorizontal: 40,
+                    padding: 10,
+                    alignItems: "center",
+                    backgroundColor: "red",
+                    borderRadius: 100,
+                  }}
+                >
+                  <Text
+                    style={{
+                      fontFamily: fonts.PoppinsSemiBold,
+                      color: "white",
+                    }}
+                  >
+                    {btn.text || "Go to demo"}
+                  </Text>
+                </Pressable>
+              </Link>
+            ))}
+          </View>
+        )}
       </SafeAreaView>
     </>
   );

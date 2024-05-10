@@ -7,7 +7,14 @@ interface Props extends PropsWithChildren {
 }
 export const MarkdownDisplay: React.FC<Props> = ({ children, style }) => {
   return (
-    <Markdown style={{ ...markdonwStyles, ...style }}>{children}</Markdown>
+    <Markdown
+      style={{
+        ...markdonwStyles,
+        ...style,
+      }}
+    >
+      {children}
+    </Markdown>
   );
 };
 

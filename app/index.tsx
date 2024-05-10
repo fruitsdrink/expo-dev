@@ -19,6 +19,11 @@ const days = [
     title: "markdown",
     link: "https://www.youtube.com/live/XKKh9jZ8QD4?si=2sXnu-satwi0b2R5",
   },
+  {
+    day: 4,
+    title: "animate splash lottie",
+    link: "https://www.youtube.com/live/Y_IaioaI2w0?si=Uh5ucSY9Ycxk2bSu",
+  },
 ];
 
 export default function HomeScreen() {
