@@ -4,13 +4,27 @@ import { fonts } from "@/constants";
 import { Link } from "expo-router";
 
 interface Props {
-  day: number;
+  day: {
+    day: number;
+    title: string;
+    link?: string;
+  };
 }
 export const DayListItem: React.FC<Props> = ({ day }) => {
   return (
-    <Link href={`/(days)/day${day}`} asChild>
+    <Link href={`/(days)/day${day.day}`} asChild>
       <Pressable style={styles.box}>
-        <Text style={styles.text}>{day}</Text>
+        <Text style={styles.text}>{day.day}</Text>
+
+        {day.link ? (
+          <Link href={day.link} asChild>
+            <Pressable>
+              <Text>{day.title}</Text>
+            </Pressable>
+          </Link>
+        ) : (
+          <Text>{day.title}</Text>
+        )}
       </Pressable>
     </Link>
   );

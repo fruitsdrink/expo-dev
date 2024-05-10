@@ -7,7 +7,7 @@ export default function Day1Screen() {
   return (
     <>
       <Stack.Screen options={{ title: "Day 1" }} />
-      <View>
+      <View style={styles.container}>
         <Text
           style={{
             fontSize: 50,
@@ -21,4 +21,10 @@ export default function Day1Screen() {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
