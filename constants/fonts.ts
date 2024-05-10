@@ -7,6 +7,8 @@ export const fonts = {
    * Inter_400Regular
    */
   Inter: "Inter",
+  InterSemi: "InterSemi",
+  InterBold: "InterBold",
   /**
    * AmaticSC_400Regular
    */

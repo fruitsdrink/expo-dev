@@ -4,7 +4,7 @@ import { FlatList, StyleSheet, View } from "react-native";
 import { DayListItem } from "@/components";
 
 // const days = Array.from({ length: 6 }, (_, i) => i + 1);
-const days = [...Array(1)].map((_, i) => i + 1);
+const days = [...Array(2)].map((_, i) => i + 1);
 
 export default function HomeScreen() {
   return (

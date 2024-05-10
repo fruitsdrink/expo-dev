@@ -6,7 +6,7 @@ import { fonts } from "@/constants";
 export default function Day1Screen() {
   return (
     <>
-      <Stack.Screen options={{ title: "Day1" }} />
+      <Stack.Screen options={{ title: "Day 1" }} />
       <View>
         <Text
           style={{

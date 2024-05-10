@@ -1,7 +1,11 @@
 import { useEffect } from "react";
 import { useFonts } from "expo-font";
 import { NotoSerifSC_400Regular } from "@expo-google-fonts/noto-serif-sc";
-import { Inter_400Regular } from "@expo-google-fonts/inter";
+import {
+  Inter_400Regular,
+  Inter_600SemiBold,
+  Inter_700Bold,
+} from "@expo-google-fonts/inter";
 import {
   AmaticSC_400Regular,
   AmaticSC_700Bold,
@@ -12,6 +16,7 @@ import {
 } from "@expo-google-fonts/poppins";
 import * as SplashScreen from "expo-splash-screen";
 import { Stack } from "expo-router";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import "react-native-reanimated";
 
 SplashScreen.preventAutoHideAsync();
@@ -20,6 +25,8 @@ export default function HomeScreen() {
   const [fontsLoaded, fontError] = useFonts({
     NotoSerif: NotoSerifSC_400Regular,
     Inter: Inter_400Regular,
+    InterSemi: Inter_600SemiBold,
+    InterBold: Inter_700Bold,
     Amatic: AmaticSC_400Regular,
     AmaticBold: AmaticSC_700Bold,
     Poppins: Poppins_400Regular,
@@ -37,8 +44,10 @@ export default function HomeScreen() {
   }
 
   return (
-    <Stack>
-      <Stack.Screen name="index" options={{ headerTitle: "ExpoDev" }} />
-    </Stack>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <Stack>
+        <Stack.Screen name="index" options={{ headerTitle: "ExpoDev" }} />
+      </Stack>
+    </GestureHandlerRootView>
   );
 }
