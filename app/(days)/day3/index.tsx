@@ -1,9 +1,5 @@
-import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import { Link, Stack } from "expo-router";
-import { globalStyles } from "@/styles";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { DayHome, MarkdownDisplay } from "@/components";
+import { DayHome } from "@/components";
 
 const markdown = `
 # Markdown 的使用
