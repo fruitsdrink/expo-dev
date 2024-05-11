@@ -29,6 +29,11 @@ const days = [
     title: "airbnb map & bottom sheet",
     link: "https://www.youtube.com/live/ijBG81t0tAo?si=q3uA9oplDRB7yA9p",
   },
+  {
+    day: 6,
+    title: "Tinder Swipe Animation",
+    link: "https://www.youtube.com/live/H2Xr_id5JuE?si=d91_Hh3ybvFZwv5S",
+  },
 ];
 
 export default function HomeScreen() {
