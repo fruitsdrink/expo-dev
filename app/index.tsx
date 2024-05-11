@@ -34,6 +34,11 @@ const days = [
     title: "Tinder Swipe Animation",
     link: "https://www.youtube.com/live/H2Xr_id5JuE?si=d91_Hh3ybvFZwv5S",
   },
+  {
+    day: 7,
+    title: "IOS Voice Memos",
+    link: "https://www.youtube.com/live/1UmepETPGJI?si=0sB7I7ZYE__ZH1uT",
+  },
 ];
 
 export default function HomeScreen() {

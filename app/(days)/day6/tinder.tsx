@@ -1,12 +1,12 @@
 import { StyleSheet, View, Text, Button } from "react-native";
 import React, { useEffect, useState } from "react";
 import { Stack } from "expo-router";
-import { TinderCard } from "./_components";
 import {
   runOnJS,
   useAnimatedReaction,
   useSharedValue,
 } from "react-native-reanimated";
+import { TinderCard } from "@/components";
 
 const dummuUsers = [
   {
