@@ -24,6 +24,11 @@ const days = [
     title: "animate splash lottie",
     link: "https://www.youtube.com/live/Y_IaioaI2w0?si=Uh5ucSY9Ycxk2bSu",
   },
+  {
+    day: 5,
+    title: "airbnb map & bottom sheet",
+    link: "https://www.youtube.com/live/ijBG81t0tAo?si=q3uA9oplDRB7yA9p",
+  },
 ];
 
 export default function HomeScreen() {
