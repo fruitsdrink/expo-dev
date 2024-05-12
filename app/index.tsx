@@ -3,9 +3,15 @@ import { FlatList, StyleSheet, View } from "react-native";
 
 import { DayListItem } from "@/components";
 
+type DayItem = {
+  day: number;
+  title: string;
+  link?: string;
+};
+
 // const days = Array.from({ length: 6 }, (_, i) => i + 1);
 // const days = [...Array(2)].map((_, i) => i + 1);
-const days = [
+const days: DayItem[] = [
   {
     day: 1,
     title: "Introduction",
@@ -38,6 +44,11 @@ const days = [
     day: 7,
     title: "IOS Voice Memos",
     link: "https://www.youtube.com/live/1UmepETPGJI?si=0sB7I7ZYE__ZH1uT",
+  },
+  {
+    day: 8,
+    title: "Weather App",
+    link: "https://www.youtube.com/live/Z0fTSK_UeNk?si=4oNKODqjq6d6Yg-z",
   },
 ];
 

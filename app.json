@@ -25,7 +25,16 @@
       "favicon": "./assets/favicon.png",
       "bundler": "metro"
     },
-    "plugins": ["expo-font", "expo-router"],
+    "plugins": [
+      "expo-font",
+      "expo-router",
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "允许 $(PRODUCT_NAME) 使用你的位置"
+        }
+      ]
+    ],
     "experiments": {
       "typedRoutes": true
     }

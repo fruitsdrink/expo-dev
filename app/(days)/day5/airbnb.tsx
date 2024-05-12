@@ -23,7 +23,7 @@ export default function AirbnbScreen() {
     <>
       <Stack.Screen
         options={{
-          headerShown: false,
+          // headerShown: false,
           title: "Airbnb Map",
         }}
       />
