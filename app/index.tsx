@@ -50,6 +50,16 @@ const days: DayItem[] = [
     title: "Weather App",
     link: "https://www.youtube.com/live/Z0fTSK_UeNk?si=4oNKODqjq6d6Yg-z",
   },
+  {
+    day: 9,
+    title: "AWS Amplify Gen1",
+    link: "https://www.youtube.com/live/BGtVw_EEKZ8?si=FzIioTri7RbMewm2",
+  },
+  {
+    day: 10,
+    title: "Fingerprint and FaceID",
+    link: "https://www.youtube.com/live/cDz9Wt8xM5c?si=--lzLsYiB7jZwIgV",
+  },
 ];
 
 export default function HomeScreen() {

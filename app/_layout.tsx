@@ -19,6 +19,7 @@ import { Stack } from "expo-router";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import "react-native-reanimated";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import BiometricsProvider from "@/components/day10/BiometricsProvider";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -45,12 +46,14 @@ export default function HomeScreen() {
   }
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <SafeAreaProvider>
-        <Stack>
-          <Stack.Screen name="index" options={{ headerTitle: "ExpoDev" }} />
-        </Stack>
-      </SafeAreaProvider>
-    </GestureHandlerRootView>
+    <BiometricsProvider>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <SafeAreaProvider>
+          <Stack>
+            <Stack.Screen name="index" options={{ headerTitle: "ExpoDev" }} />
+          </Stack>
+        </SafeAreaProvider>
+      </GestureHandlerRootView>
+    </BiometricsProvider>
   );
 }
