@@ -19,11 +19,11 @@ export const DayListItem: React.FC<Props> = ({ day }) => {
         {day.link ? (
           <Link href={day.link} asChild>
             <Pressable>
-              <Text>{day.title}</Text>
+              <Text style={{ textAlign: "center" }}>{day.title}</Text>
             </Pressable>
           </Link>
         ) : (
-          <Text>{day.title}</Text>
+          <Text style={{ textAlign: "center" }}>{day.title}</Text>
         )}
       </Pressable>
     </Link>
@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
 
     alignItems: "center",
     justifyContent: "center",
+    padding: 8,
   },
   text: {
     color: "#9b4521",

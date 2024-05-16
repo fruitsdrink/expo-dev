@@ -60,6 +60,11 @@ const days: DayItem[] = [
     title: "Fingerprint and FaceID",
     link: "https://www.youtube.com/live/cDz9Wt8xM5c?si=--lzLsYiB7jZwIgV",
   },
+  {
+    day: 11,
+    title: "vision camera",
+    link: "https://www.youtube.com/live/XgPLshk9q9A?si=g2mTFR0OhToUELXw",
+  },
 ];
 
 export default function HomeScreen() {
