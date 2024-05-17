@@ -65,6 +65,11 @@ const days: DayItem[] = [
     title: "vision camera",
     link: "https://www.youtube.com/live/XgPLshk9q9A?si=g2mTFR0OhToUELXw",
   },
+  {
+    day: 12,
+    title: "TikTok Video Feed",
+    link: "https://www.youtube.com/live/ss6M5xztvWY?si=aMUMDH4RaWd9BOML",
+  },
 ];
 
 export default function HomeScreen() {

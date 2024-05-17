@@ -5,3 +5,4 @@ export * from "./day6/TinderCard";
 export * from "./day7/MemoListItem";
 export * from "./day8/ForecastItem";
 export * from "./day10/BiometricsProvider";
+export * from "./day12/VideoPost";
