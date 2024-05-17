@@ -70,6 +70,11 @@ const days: DayItem[] = [
     title: "TikTok Video Feed",
     link: "https://www.youtube.com/live/ss6M5xztvWY?si=aMUMDH4RaWd9BOML",
   },
+  {
+    day: 13,
+    title: "EAS Build&Update",
+    link: "https://www.youtube.com/live/PdHbBZvPyxI?si=2yo-VWnLoOYr-zGm",
+  },
 ];
 
 export default function HomeScreen() {
