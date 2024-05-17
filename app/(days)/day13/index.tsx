@@ -14,6 +14,9 @@ const desc = `
 - eas submit
 - eas update
 
+## 注意
+- eas只能自动更新javascript代码，不能更新原生代码
+- 如果更新了原生代码或权限等，需要重新提交到eas
 
 
 ## 相关文档
