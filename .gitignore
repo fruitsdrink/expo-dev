@@ -37,5 +37,5 @@ yarn-error.*
 # custom
 expo-env.d.ts
 
-ios
-android
+ios/
+android/
