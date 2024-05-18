@@ -1,6 +1,6 @@
 import { Link, Stack } from "expo-router";
 import React from "react";
-import { Pressable, View, Text, SafeAreaView } from "react-native";
+import { Pressable, View, Text, SafeAreaView, ScrollView } from "react-native";
 import { MarkdownDisplay } from "./MarkdownDisplay";
 import { fonts } from "@/constants";
 
@@ -22,18 +22,19 @@ export const DayHome: React.FC<DayHomeProps> = ({
         }}
       />
       <SafeAreaView style={{ flex: 1 }}>
-        <View
+        <ScrollView
           style={{
             flex: 1,
             padding: 20,
           }}
         >
           <MarkdownDisplay>{description}</MarkdownDisplay>
-        </View>
+        </ScrollView>
 
         {buttons && (
           <View
             style={{
+              paddingTop: 16,
               gap: 8,
             }}
           >
