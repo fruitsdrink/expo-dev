@@ -75,6 +75,11 @@ const days: DayItem[] = [
     title: "EAS Build&Update",
     link: "https://www.youtube.com/live/PdHbBZvPyxI?si=2yo-VWnLoOYr-zGm",
   },
+  {
+    day: 14,
+    title: "todo app",
+    link: "https://www.youtube.com/live/kUGhYNn_o-Q?si=4ZL5PZPdpCJfdMti",
+  },
 ];
 
 export default function HomeScreen() {
