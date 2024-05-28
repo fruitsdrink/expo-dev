@@ -80,6 +80,11 @@ const days: DayItem[] = [
     title: "todo app",
     link: "https://www.youtube.com/live/kUGhYNn_o-Q?si=4ZL5PZPdpCJfdMti",
   },
+  {
+    day: 15,
+    title: "todo with context",
+    link: "https://www.youtube.com/live/gBslnnhsEq0?si=wD1MYnBsfgzNU_Fw",
+  },
 ];
 
 export default function HomeScreen() {
