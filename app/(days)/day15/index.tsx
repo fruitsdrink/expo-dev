@@ -5,8 +5,6 @@ import { DayHome } from "@/components";
 const desc = `
 # Todo With Context
 
-[youtube](components/day14)
-
 ## 知识点
 - FlatList底部组件的使用
 - TextInput的使用, 注意焦点的处理
@@ -34,8 +32,8 @@ export default function Day15Screen() {
       description={desc}
       buttons={[
         {
-          link: "/day15/todo",
-        },
+          link: "/day15/todo"
+        }
       ]}
     />
   );
