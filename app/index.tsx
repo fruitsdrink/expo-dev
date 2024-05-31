@@ -89,6 +89,11 @@ const days: DayItem[] = [
     day: 16,
     title: "todo zustand",
     link: "https://www.youtube.com/live/fvtxgwa5NJA?si=LZBujOmNYFvmcZZ-"
+  },
+  {
+    day: 17,
+    title: "Ig Stories",
+    link: "https://www.youtube.com/live/8ZgSt3VJ5Mc?si=dY0Qw77-4EudIQWh"
   }
 ];
 
