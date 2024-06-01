@@ -94,6 +94,11 @@ const days: DayItem[] = [
     day: 17,
     title: "Ig Stories",
     link: "https://www.youtube.com/live/8ZgSt3VJ5Mc?si=dY0Qw77-4EudIQWh"
+  },
+  {
+    day: 18,
+    title: "Analytics",
+    link: "https://www.youtube.com/live/Pv17halAbmo?si=kQ8iNVZvatWPKpjm"
   }
 ];
 
