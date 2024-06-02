@@ -15,7 +15,6 @@ const _AllocationListItem = ({ allocation, accountAllocations }: Props) => {
       <View style={styles.header}>
         <Text style={styles.date}>{allocation.createdAt.toLocaleString()}</Text>
         <Text style={styles.income}>${allocation.income}</Text>
-        <Text>count: {accountAllocations.length}</Text>
       </View>
       <View style={{ gap: 5, paddingVertical: 5 }}>
         {accountAllocations.map((item) => (
