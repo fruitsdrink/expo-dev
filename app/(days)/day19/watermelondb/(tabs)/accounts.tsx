@@ -24,7 +24,10 @@ export default function AccountScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    gap: 5,
+    padding: 5
+  },
   header: {
     flexDirection: "row",
     justifyContent: "space-between",
