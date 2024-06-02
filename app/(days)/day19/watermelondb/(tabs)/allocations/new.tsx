@@ -1,5 +1,5 @@
 import { allocationCollection, database } from "@/components/day19/db";
-import { Stack } from "expo-router";
+import { Stack, router } from "expo-router";
 import { useState } from "react";
 import { Button, StyleSheet, Text, TextInput, View } from "react-native";
 
@@ -12,6 +12,9 @@ export default function NewAllocationScreen() {
         allocation.income = Number.parseFloat(income) || 0;
       });
     });
+    setIncome("");
+    // 返回上一页面
+    router.back();
   };
 
   return (
