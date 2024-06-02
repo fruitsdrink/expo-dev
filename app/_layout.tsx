@@ -24,7 +24,9 @@ import BiometricsProvider from "@/components/day10/BiometricsProvider";
 import { vexo } from "vexo-analytics";
 
 // You may want to wrap this with `if (!__DEV__) { ... }` to only run Vexo in production.
-vexo(process.env.EXPO_PUBLIC_VEXO_API_KEY || "");
+if (!__DEV__) {
+  vexo(process.env.EXPO_PUBLIC_VEXO_API_KEY || "");
+}
 
 SplashScreen.preventAutoHideAsync();
 

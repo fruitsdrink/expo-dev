@@ -60,7 +60,7 @@ module.exports = function (api) {
 export default function Day19Screen() {
   return (
     <DayHome
-      title="Local First App with WatermelonDB"
+      title="WatermelonDB"
       description={desc}
       buttons={[
         {

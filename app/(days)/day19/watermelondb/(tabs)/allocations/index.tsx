@@ -1,17 +1,15 @@
-import { Stack } from "expo-router";
+import { Link, Stack } from "expo-router";
 import { StyleSheet, View, Text } from "react-native";
 import { useEffect, useState } from "react";
 
 export default function WatermelondbLayout() {
   return (
     <>
-      <Stack.Screen
-        options={{
-          headerBackTitleVisible: false,
-          headerTitle: "WatermelonDB"
-        }}
-      />
-      <View style={styles.container}></View>
+      <Stack.Screen options={{ title: "Allocations" }} />
+      <View style={styles.container}>
+        <Text>All locations</Text>
+        <Link href={"/day19/watermelondb/allocations/new"}>New Allocation</Link>
+      </View>
     </>
   );
 }

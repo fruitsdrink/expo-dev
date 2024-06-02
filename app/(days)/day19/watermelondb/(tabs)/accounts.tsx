@@ -6,8 +6,7 @@ export default function AccountScreen() {
     <>
       <Stack.Screen
         options={{
-          headerBackTitleVisible: false,
-          title: "Account"
+          title: "Accounts"
         }}
       />
       <View>
