@@ -10,6 +10,7 @@ const _AllocationList = ({ allocations }: { allocations: Allocation[] }) => {
     <FlatList
       data={allocations}
       contentContainerStyle={{ gap: 10, padding: 10 }}
+      keyExtractor={(item) => item.id}
       renderItem={({ item }) => <AllocationListItem allocation={item} />}
     />
   );

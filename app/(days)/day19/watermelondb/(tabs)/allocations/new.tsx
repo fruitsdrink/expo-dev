@@ -1,4 +1,5 @@
 import {
+  accountAllocationCollection,
   accountCollection,
   allocationCollection,
   database
@@ -14,9 +15,21 @@ function NewAllocationScreen({ accounts }: { accounts: Account[] }) {
 
   const onSave = async () => {
     await database.write(async () => {
-      allocationCollection.create((allocation) => {
+      const allocation = await allocationCollection.create((allocation) => {
         allocation.income = Number.parseFloat(income) || 0;
       });
+
+      // for each account, save a AccountAllocation
+      await Promise.all(
+        accounts.map((account) => {
+          accountAllocationCollection.create((item) => {
+            item.account.set(account);
+            item.allocation.set(allocation);
+            item.cap = account.cap;
+            item.amount = (allocation.income * account.cap) / 100;
+          });
+        })
+      );
     });
     setIncome("0");
     // 返回上一页面

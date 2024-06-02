@@ -1,8 +1,16 @@
 import { Link, Stack } from "expo-router";
 import { StyleSheet, View, Text } from "react-native";
 import { AllocationList } from "@/components";
+import { useEffect } from "react";
+import { accountAllocationCollection } from "@/components/day19/db";
 
-export default function WatermelondbLayout() {
+export default function HomeScreen() {
+  // useEffect(() => {
+  //   (async () => {
+  //     const items = await accountAllocationCollection.query().fetch();
+  //     console.log("🚀 ~ useEffect ~ items:", items);
+  //   })();
+  // }, []);
   return (
     <>
       <Stack.Screen options={{ title: "Allocations" }} />

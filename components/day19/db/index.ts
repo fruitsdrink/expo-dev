@@ -6,6 +6,7 @@ import migrations from "./migrations";
 import { Account } from "../model/account.model";
 import { Platform } from "react-native";
 import { Allocation } from "../model/allocation.model";
+import { AccountAllocation } from "../model/account-allocation.model";
 
 const adapter = new SQLiteAdapter({
   schema,
@@ -26,10 +27,18 @@ const adapter = new SQLiteAdapter({
 
 const database = new Database({
   adapter,
-  modelClasses: [Account, Allocation]
+  modelClasses: [Account, Allocation, AccountAllocation]
 });
 
 const accountCollection = database.get<Account>("accounts");
 const allocationCollection = database.get<Allocation>("allocations");
+const accountAllocationCollection = database.get<AccountAllocation>(
+  "accounts_allocations"
+);
 
-export { database, accountCollection, allocationCollection };
+export {
+  database,
+  accountCollection,
+  allocationCollection,
+  accountAllocationCollection
+};
