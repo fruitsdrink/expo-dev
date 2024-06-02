@@ -3,7 +3,8 @@ import SQLiteAdapter from "@nozbe/watermelondb/adapters/sqlite";
 
 import schema from "./schema";
 import migrations from "./migrations";
-import Task from "./task";
+import { Account } from "../model/account.model";
+import { Platform } from "react-native";
 
 const adapter = new SQLiteAdapter({
   schema,
@@ -13,7 +14,8 @@ const adapter = new SQLiteAdapter({
   // dbName: 'myapp',
   // (recommended option, should work flawlessly out of the box on iOS. On Android,
   // additional installation steps have to be taken - disable if you run into issues...)
-  jsi: true /* Platform.OS === 'ios' */,
+  // jsi: true /* Platform.OS === 'ios' */,
+  jsi: Platform.OS === "ios",
   // (optional, but you should implement this method)
   onSetUpError: (error) => {
     console.log("🚀 ~ error:", error);
@@ -23,7 +25,9 @@ const adapter = new SQLiteAdapter({
 
 const database = new Database({
   adapter,
-  modelClasses: [Task]
+  modelClasses: [Account]
 });
 
-export { database, Task };
+const accountCollection = database.get<Account>("accounts");
+
+export { database, accountCollection };

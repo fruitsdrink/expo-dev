@@ -1,14 +1,38 @@
-import { AccountList, AccountListItem } from "@/components";
+import { EnhancedAccountList } from "@/components";
+import { accountCollection, database } from "@/components/day19/db";
 import { Stack } from "expo-router";
 import { useState } from "react";
 import { Button, StyleSheet, Text, TextInput, View } from "react-native";
 
 export default function AccountScreen() {
   const [name, setName] = useState("");
-  const [cap, setCap] = useState(0);
-  const [tap, setTap] = useState(0);
+  const [cap, setCap] = useState("");
+  const [tap, setTap] = useState("");
 
-  const createAccount = () => {};
+  const createAccount = async () => {
+    if (name) {
+      await database.write(async () => {
+        await accountCollection.create((account) => {
+          account.name = name;
+          account.cap = parseFloat(cap) || 0;
+          account.tap = parseFloat(tap) || 0;
+        });
+        setName("");
+        setCap("");
+        setTap("");
+      });
+    }
+  };
+
+  const updateAccount = async () => {
+    await database.write(async () => {
+      const accounts = await accountCollection.query().fetch();
+      const account = accounts[0];
+      account.update((updateAccount) => {
+        updateAccount.name = new Date().getTime().toString();
+      });
+    });
+  };
 
   return (
     <>
@@ -19,12 +43,13 @@ export default function AccountScreen() {
       />
       <View style={styles.container}>
         <View style={styles.header}>
-          <Text>Name</Text>
-          <Text>CAP</Text>
-          <Text>TAP</Text>
+          <Text style={{ flex: 1 }}>Name</Text>
+          <Text style={{ flex: 1 }}>CAP</Text>
+          <Text style={{ flex: 1 }}>TAP</Text>
+          <Text>Actions</Text>
         </View>
 
-        <AccountList />
+        <EnhancedAccountList />
 
         <View style={styles.inputRow}>
           <TextInput
@@ -34,19 +59,20 @@ export default function AccountScreen() {
             style={styles.input}
           />
           <TextInput
-            value={cap.toString()}
-            onChangeText={(val) => setCap(Number(val))}
+            value={cap}
+            onChangeText={(val) => setCap(val)}
             placeholder="CAP %"
             style={styles.input}
           />
           <TextInput
-            value={tap.toString()}
-            onChangeText={(val) => setTap(Number(val))}
+            value={tap}
+            onChangeText={(val) => setTap(val)}
             placeholder="TAP %"
             style={styles.input}
           />
         </View>
         <Button title="Add account" onPress={createAccount} />
+        <Button title="update test" onPress={updateAccount} />
       </View>
     </>
   );

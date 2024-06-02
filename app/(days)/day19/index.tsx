@@ -18,7 +18,7 @@ const desc = `
 - expo-build-properties
 
 \`\`\`bash
-yarn add @nozbe/watermelondb
+npx expo install @nozbe/watermelondb
 yarn add --dev @babel/plugin-proposal-decorators
 yarn add --dev @morrowdigital/watermelondb-expo-plugin
 npx expo install expo-build-properties
