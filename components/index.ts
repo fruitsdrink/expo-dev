@@ -8,3 +8,5 @@ export * from "./day10/BiometricsProvider";
 export * from "./day12/VideoPost";
 export * from "./day14/NewTaskInput";
 export * from "./day14/TaskListItem";
+export * from "./day19/AccountListItem";
+export * from "./day19/AccountList";

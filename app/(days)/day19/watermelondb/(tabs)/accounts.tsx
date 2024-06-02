@@ -1,5 +1,6 @@
+import { AccountList, AccountListItem } from "@/components";
 import { Stack } from "expo-router";
-import { Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 export default function AccountScreen() {
   return (
@@ -9,9 +10,24 @@ export default function AccountScreen() {
           title: "Accounts"
         }}
       />
-      <View>
-        <Text>Account</Text>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Text>Name</Text>
+          <Text>CAP</Text>
+          <Text>TAP</Text>
+        </View>
+
+        <AccountList />
       </View>
     </>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {},
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    padding: 10
+  }
+});
