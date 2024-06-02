@@ -102,8 +102,8 @@ const days: DayItem[] = [
   },
   {
     day: 19,
-    title: "Local First App with WatermelonDB",
-    link: "https://www.youtube.com/live/abq6zxurflI?si=78wc9RoLW8UjoGnH"
+    title: "WatermelonDB",
+    link: "https://www.youtube.com/live/x7KE4JD-Q9A?si=VfgHKMuVsYfEFP3F"
   }
 ];
 

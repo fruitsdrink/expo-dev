@@ -1,9 +1,10 @@
 import { DayHome } from "@/components";
 
 const desc = `
-# Local First App with WatermelonDB
+# WatermelonDB
 
-[youtube](https://www.youtube.com/live/abq6zxurflI?si=tqfLJ_0Cr40bGW0U)
+[youtube](https://www.youtube.com/live/x7KE4JD-Q9A?si=VfgHKMuVsYfEFP3F)
+
 
 ## 技术点
 
@@ -63,6 +64,7 @@ export default function Day19Screen() {
       description={desc}
       buttons={[
         {
+          text: "watermelonDB",
           link: "/day19/watermelondb"
         }
       ]}
