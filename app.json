@@ -62,6 +62,18 @@
           "microphonePermissionText": "$(PRODUCT_NAME) needs access to your Microphone.",
           "enableCodeScanner": true
         }
+      ],
+      ["@morrowdigital/watermelondb-expo-plugin"],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "kotlinVersion": "1.6.10",
+            "packagingOptions": {
+              "pickFirst": ["**/libc++_shared.so"]
+            }
+          }
+        }
       ]
     ],
     "experiments": {
