@@ -9,6 +9,7 @@ const desc = `
 ## 技术点
 
 - [watermelonDB](https://watermelondb.dev/docs)
+- [supabase](https://supabase.com)
 
 ## package
 
@@ -56,6 +57,11 @@ module.exports = function (api) {
     ]
   }
 }
+\`\`\`
+## 相关资料
+- [watermelonDB](https://watermelondb.dev/docs)
+- [supabase](https://supabase.com)
+- [Using WatermelonDB with React Native Expo SDK 50](https://www.themorrow.digital/blog/how-to-use-watermelondb-with-react-native-expo)
 `;
 export default function Day19Screen() {
   return (
