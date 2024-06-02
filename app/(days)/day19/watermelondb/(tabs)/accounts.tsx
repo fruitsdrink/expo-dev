@@ -1,8 +1,15 @@
 import { AccountList, AccountListItem } from "@/components";
 import { Stack } from "expo-router";
-import { StyleSheet, Text, View } from "react-native";
+import { useState } from "react";
+import { Button, StyleSheet, Text, TextInput, View } from "react-native";
 
 export default function AccountScreen() {
+  const [name, setName] = useState("");
+  const [cap, setCap] = useState(0);
+  const [tap, setTap] = useState(0);
+
+  const createAccount = () => {};
+
   return (
     <>
       <Stack.Screen
@@ -18,6 +25,28 @@ export default function AccountScreen() {
         </View>
 
         <AccountList />
+
+        <View style={styles.inputRow}>
+          <TextInput
+            value={name}
+            onChangeText={setName}
+            placeholder="Name"
+            style={styles.input}
+          />
+          <TextInput
+            value={cap.toString()}
+            onChangeText={(val) => setCap(Number(val))}
+            placeholder="CAP %"
+            style={styles.input}
+          />
+          <TextInput
+            value={tap.toString()}
+            onChangeText={(val) => setTap(Number(val))}
+            placeholder="TAP %"
+            style={styles.input}
+          />
+        </View>
+        <Button title="Add account" onPress={createAccount} />
       </View>
     </>
   );
@@ -32,5 +61,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     padding: 10
+  },
+  inputRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    padding: 10,
+    backgroundColor: "white"
+  },
+  input: {
+    flex: 1
   }
 });
