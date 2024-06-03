@@ -1,5 +1,6 @@
 import { EnhancedAccountList } from "@/components";
 import { accountCollection, database } from "@/components/day19/db";
+import { useAuth } from "@/providers/day19/AuthProvider";
 import { Stack } from "expo-router";
 import { useState } from "react";
 import { Button, StyleSheet, Text, TextInput, View } from "react-native";
@@ -9,6 +10,8 @@ export default function AccountScreen() {
   const [cap, setCap] = useState("");
   const [tap, setTap] = useState("");
 
+  const { user } = useAuth();
+
   const createAccount = async () => {
     if (name) {
       await database.write(async () => {
@@ -16,6 +19,7 @@ export default function AccountScreen() {
           account.name = name;
           account.cap = parseFloat(cap) || 0;
           account.tap = parseFloat(tap) || 0;
+          account.userId = user.id;
         });
         setName("");
         setCap("");
@@ -72,7 +76,7 @@ export default function AccountScreen() {
           />
         </View>
         <Button title="Add account" onPress={createAccount} />
-        <Button title="update test" onPress={updateAccount} />
+        {/* <Button title="update test" onPress={updateAccount} /> */}
       </View>
     </>
   );

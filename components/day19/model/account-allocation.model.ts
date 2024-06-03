@@ -3,6 +3,7 @@ import {
   date,
   field,
   immutableRelation,
+  nochange,
   readonly
 } from "@nozbe/watermelondb/decorators";
 import { type Account } from "./account.model";
@@ -18,6 +19,7 @@ export class AccountAllocation extends Model {
   @readonly @date("created_at") createdAt: number;
   @field("amount") amount: number;
   @field("cap") cap: number;
+  @nochange @field("user_id") userId: string;
 
   @immutableRelation("accounts", "account_id") account: Relation<Account>;
   @immutableRelation("allocations", "allocation_id")

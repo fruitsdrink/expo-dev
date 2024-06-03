@@ -1,11 +1,10 @@
 import { Model } from "@nozbe/watermelondb";
 import {
   field,
-  text,
   date,
   readonly,
-  writer,
-  children
+  children,
+  nochange
 } from "@nozbe/watermelondb/decorators";
 import { type AccountAllocation } from "./account-allocation.model";
 
@@ -20,6 +19,7 @@ export class Allocation extends Model {
 
   @readonly @date("created_at") createdAt: number;
   @field("income") income: number;
+  @nochange @field("user_id") userId: string;
 
   @children("accounts_allocations") accountAllocations: AccountAllocation[];
 }

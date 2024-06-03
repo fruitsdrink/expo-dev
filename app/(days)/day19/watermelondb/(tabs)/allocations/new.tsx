@@ -9,14 +9,17 @@ import { useState } from "react";
 import { Button, StyleSheet, Text, TextInput, View } from "react-native";
 import { withObservables } from "@nozbe/watermelondb/react";
 import { type Account } from "@/components/day19/model/account.model";
+import { useAuth } from "@/providers/day19/AuthProvider";
 
 function NewAllocationScreen({ accounts }: { accounts: Account[] }) {
   const [income, setIncome] = useState("0");
+  const { user } = useAuth();
 
   const onSave = async () => {
     await database.write(async () => {
       const allocation = await allocationCollection.create((allocation) => {
         allocation.income = Number.parseFloat(income) || 0;
+        allocation.userId = user.id;
       });
 
       // for each account, save a AccountAllocation
@@ -27,6 +30,7 @@ function NewAllocationScreen({ accounts }: { accounts: Account[] }) {
             item.allocation.set(allocation);
             item.cap = account.cap;
             item.amount = (allocation.income * account.cap) / 100;
+            item.userId = user.id;
           });
         })
       );
