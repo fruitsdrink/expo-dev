@@ -18,6 +18,7 @@ export class Allocation extends Model {
   };
 
   @readonly @date("created_at") createdAt: number;
+  @readonly @date("updated_at") updatedAt;
   @field("income") income: number;
   @nochange @field("user_id") userId: string;
 
