@@ -1,7 +1,12 @@
-import { Stack, Tabs } from "expo-router";
+import { Redirect, Stack, Tabs } from "expo-router";
 import { MaterialIcons } from "@expo/vector-icons";
+import { useAuth } from "@/providers/day19/AuthProvider";
 
 export default function WatermelondbLayout() {
+  const { isAuthenticated } = useAuth();
+  if (!isAuthenticated) {
+    return <Redirect href={"/day19/watermelondb/login"} />;
+  }
   return (
     <>
       <Stack.Screen options={{ headerShown: false }} />
@@ -30,7 +35,7 @@ export default function WatermelondbLayout() {
             )
           }}
         />
-        <Tabs.Screen name="index" options={{ href: null }} />
+        {/* <Tabs.Screen name="index" options={{ href: null }} /> */}
       </Tabs>
     </>
   );
