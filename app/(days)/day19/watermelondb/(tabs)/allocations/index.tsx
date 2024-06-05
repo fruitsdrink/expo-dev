@@ -1,19 +1,27 @@
 import { Link, Stack } from "expo-router";
 import { StyleSheet, View, Text } from "react-native";
 import { AllocationList } from "@/components";
-import { useEffect } from "react";
-import { accountAllocationCollection } from "@/components/day19/db";
+import { Feather } from "@expo/vector-icons";
+import { supabaseSync } from "@/components/day19/db/sync";
 
 export default function HomeScreen() {
-  // useEffect(() => {
-  //   (async () => {
-  //     const items = await accountAllocationCollection.query().fetch();
-  //     console.log("🚀 ~ useEffect ~ items:", items);
-  //   })();
-  // }, []);
   return (
     <>
-      <Stack.Screen options={{ title: "Allocations" }} />
+      <Stack.Screen
+        options={{
+          title: "Allocations",
+          headerRight: () => (
+            <Feather
+              name="refresh-cw"
+              size={20}
+              color={"black"}
+              onPress={async () => {
+                await supabaseSync();
+              }}
+            />
+          )
+        }}
+      />
       <View style={styles.container}>
         <Link href={"/day19/watermelondb/allocations/new"} asChild>
           <Text style={styles.button}>New Allocation</Text>

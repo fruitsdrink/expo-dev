@@ -7,6 +7,9 @@ import { Account } from "../model/account.model";
 import { Platform } from "react-native";
 import { Allocation } from "../model/allocation.model";
 import { AccountAllocation } from "../model/account-allocation.model";
+import * as Crypto from "expo-crypto";
+import { setGenerator } from "@nozbe/watermelondb/utils/common/randomId";
+setGenerator(() => Crypto.randomUUID()); // 此步骤可省略，但是为了保证id的唯一性，建议设置
 
 const adapter = new SQLiteAdapter({
   schema,

@@ -10,6 +10,8 @@ const desc = `
 
 - [watermelonDB](https://watermelondb.dev/docs)
 - [supabase](https://supabase.com)
+  - 登录、注册
+  - 数据同步
 
 ## package
 
@@ -88,6 +90,9 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
 - [watermelonDB](https://watermelondb.dev/docs)
 - [supabase](https://supabase.com)
 - [Using WatermelonDB with React Native Expo SDK 50](https://www.themorrow.digital/blog/how-to-use-watermelondb-with-react-native-expo)
+- [Offline-first React Native Apps with Expo, WatermelonDB, and Supabase](https://supabase.com/blog/react-native-offline-first-watermelon-db)
+- [Database Functions](https://supabase.com/docs/guides/database/functions)
+- [plpgsql create profile](https://github.com/bndkt/sharemystack/blob/main/supabase/migrations/20230801064404_create_create_profile_function.sql)
 `;
 export default function Day19Screen() {
   return (
