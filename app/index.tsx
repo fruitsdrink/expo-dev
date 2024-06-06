@@ -104,6 +104,11 @@ const days: DayItem[] = [
     day: 19,
     title: "WatermelonDB && supabase",
     link: "https://www.youtube.com/live/x7KE4JD-Q9A?si=VfgHKMuVsYfEFP3F"
+  },
+  {
+    day: 20,
+    title: "Flatlist",
+    link: "https://youtu.be/k5_GkQliWBg?si=uqCQsKA42NAeLDW-"
   }
 ];
 
