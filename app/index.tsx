@@ -154,6 +154,11 @@ const days: DayItem[] = [
     day: 29,
     title: "Simple Settings Screen",
     link: "https://youtu.be/l0OdkphKW68?si=gvm2FHljzDU0QYnB"
+  },
+  {
+    day: 30,
+    title: "ScrollToIndex",
+    link: "https://youtu.be/pTtxhuThMew?si=s7466Jv2bwMkZbFW"
   }
 ];
 

@@ -9,7 +9,7 @@ const desc = `
 export default function Day27Screen() {
   return (
     <DayHome
-      title="Simple Workout List"
+      title="Simple Settings Screen"
       description={desc}
       buttons={[
         {
