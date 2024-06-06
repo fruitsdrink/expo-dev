@@ -41,7 +41,7 @@ export default function DemoScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 48,
+    paddingVertical: 24,
     flex: 1
   },
   profile: {
