@@ -129,6 +129,11 @@ const days: DayItem[] = [
     day: 24,
     title: "Reanimated Tutorial : 4.useSharedValue & useDerivedValue",
     link: "https://youtu.be/Hu6jjjHItv8?si=_6khAFxB1ht0-ZcR"
+  },
+  {
+    day: 25,
+    title: "Reanimated Tutorial : 5. 基本动画",
+    link: "https://youtu.be/gioXiD8hFVA?si=Bnm5oCE2srfsgMZr"
   }
 ];
 
