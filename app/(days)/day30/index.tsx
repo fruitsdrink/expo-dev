@@ -7,7 +7,7 @@ const desc = `
 
 ## 技术点
 - 屏幕尺寸的获取
-- 滚动元素到指定位置
+- FlatList滚动元素到指定位置
 - moti 组件的使用
 
 ## package
@@ -16,6 +16,7 @@ const desc = `
 
 ## 文档资料
 - [FlatList#scrollToIndex](https://reactnative.dev/docs/flatlist)
+- [moti](https://moti.fyi)
 `;
 
 export default function Day27Screen() {

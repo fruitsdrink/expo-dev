@@ -9,6 +9,7 @@ import {
 import { faker } from "@faker-js/faker";
 import { Entypo, Feather } from "@expo/vector-icons";
 import React from "react";
+import { MotiView } from "moti";
 
 const { width, height } = Dimensions.get("screen");
 
@@ -84,15 +85,21 @@ export default function DemoScreen() {
                 setIndex(fIndex);
               }}
             >
-              <View
+              <MotiView
+                animate={{
+                  backgroundColor:
+                    index === fIndex ? _colors.active : _colors.inactive,
+                  opacity: fIndex === index ? 1 : 0.6
+                }}
+                transition={{
+                  duration: 500
+                }}
                 style={{
                   marginRight: _spacing,
                   padding: _spacing,
                   borderWidth: 2,
                   borderColor: _colors.active,
-                  borderRadius: 12,
-                  backgroundColor:
-                    index === fIndex ? _colors.active : _colors.inactive
+                  borderRadius: 12
                 }}
               >
                 <Text
@@ -103,7 +110,7 @@ export default function DemoScreen() {
                 >
                   {item.job}
                 </Text>
-              </View>
+              </MotiView>
             </TouchableOpacity>
           )}
         />
