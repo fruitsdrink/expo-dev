@@ -114,6 +114,11 @@ const days: DayItem[] = [
     day: 21,
     title: "Reanimated Tutorial: 1.Animation 4 steps",
     link: "https://youtu.be/NRHoyKgb42E?si=dIlOuAHnMPtPHaLV"
+  },
+  {
+    day: 22,
+    title: "Reanimated Tutorial: 2.Animated Component",
+    link: "https://youtu.be/gxH_6PKLnxM?si=ymh6v1_M1FUiCJF8"
   }
 ];
 

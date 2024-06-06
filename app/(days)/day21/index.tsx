@@ -18,7 +18,7 @@ export default function Day21Screen() {
 
   return (
     <DayHome
-      title="Reanimated Tutorial: 1"
+      title="Animation 4 steps"
       description={desc}
       buttons={[
         {
