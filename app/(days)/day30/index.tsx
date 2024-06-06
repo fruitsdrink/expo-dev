@@ -8,6 +8,11 @@ const desc = `
 ## 技术点
 - 屏幕尺寸的获取
 - 滚动元素到指定位置
+- moti 组件的使用
+
+## package
+
+- [moti](https://moti.fyi/installation)
 
 ## 文档资料
 - [FlatList#scrollToIndex](https://reactnative.dev/docs/flatlist)
