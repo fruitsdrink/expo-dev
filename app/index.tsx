@@ -137,9 +137,10 @@ export default function HomeScreen() {
     <View style={styles.container}>
       <FlatList
         data={days}
+        keyExtractor={(item) => item.day.toString()}
         contentContainerStyle={styles.content}
-        columnWrapperStyle={styles.column}
-        numColumns={2}
+        // columnWrapperStyle={styles.column}
+        // numColumns={2}
         renderItem={({ item }) => <DayListItem day={item} />}
       />
 
