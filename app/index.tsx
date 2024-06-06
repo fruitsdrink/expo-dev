@@ -159,6 +159,11 @@ const days: DayItem[] = [
     day: 30,
     title: "FlatList Scroll To Index",
     link: "https://youtu.be/pTtxhuThMew?si=s7466Jv2bwMkZbFW"
+  },
+  {
+    day: 31,
+    title: "Animation Phone Ring Indicator Wave",
+    link: "https://youtu.be/hTmkjdKO3_M?si=IM31kTjNITlpJbkn"
   }
 ];
 
