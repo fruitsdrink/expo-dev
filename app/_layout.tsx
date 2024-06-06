@@ -20,6 +20,7 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import "react-native-reanimated";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import BiometricsProvider from "@/components/day10/BiometricsProvider";
+import { Drawer } from "expo-router/drawer";
 
 import { vexo } from "vexo-analytics";
 
@@ -60,6 +61,12 @@ export default function HomeScreen() {
             <Stack.Screen name="index" options={{ headerTitle: "ExpoDev" }} />
           </Stack>
         </SafeAreaProvider>
+        {/* <Drawer screenOptions={{}}>
+          <Drawer.Screen
+            name="index"
+            options={{ drawerLabel: "Home", title: "ExpoDev"  }}
+          />
+        </Drawer> */}
       </GestureHandlerRootView>
     </BiometricsProvider>
   );

@@ -16,6 +16,7 @@
     "@gorhom/bottom-sheet": "^4",
     "@nozbe/watermelondb": "^0.27.1",
     "@react-native-async-storage/async-storage": "1.23.1",
+    "@react-navigation/drawer": "^6.6.15",
     "@supabase/supabase-js": "^2.43.4",
     "dayjs": "^1.11.11",
     "expo": "~51.0.5",
