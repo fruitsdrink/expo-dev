@@ -139,6 +139,11 @@ const days: DayItem[] = [
     day: 26,
     title: "Login Screen",
     link: "https://youtu.be/lA_73_-n-V4?si=vOaPj4iE9Gfdbwnu"
+  },
+  {
+    day: 27,
+    title: "Simple Workout List with Circular Thumbnails",
+    link: "https://youtu.be/rd25WOhp9Co?si=IY_po3SvWiy7d02I"
   }
 ];
 
