@@ -164,6 +164,11 @@ const days: DayItem[] = [
     day: 31,
     title: "Animation Phone Ring Indicator Wave",
     link: "https://youtu.be/hTmkjdKO3_M?si=IM31kTjNITlpJbkn"
+  },
+  {
+    day: 32,
+    title: "Loading Animation",
+    link: "https://youtu.be/e5_auZoh85w?si=Jz4YldQoVrJ0LwNQ"
   }
 ];
 

@@ -1,14 +1,6 @@
 import { Stack } from "expo-router";
-import {
-  View,
-  Dimensions,
-  FlatList,
-  TouchableOpacity,
-  Text,
-  StyleSheet
-} from "react-native";
-import { faker } from "@faker-js/faker";
-import { Entypo, Feather } from "@expo/vector-icons";
+import { View, StyleSheet } from "react-native";
+import { Feather } from "@expo/vector-icons";
 import React from "react";
 import { MotiView } from "moti";
 import { Easing } from "react-native-reanimated";

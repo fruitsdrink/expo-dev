@@ -1,13 +1,15 @@
 import { DayHome } from "@/components";
 
 const desc = `
-# Phone Ring Indicator Wave
+# Loading Animation - React Native Moti & Reanimated v2
 
-[youtube](https://youtu.be/hTmkjdKO3_M?si=IM31kTjNITlpJbkn)
+[youtube](https://youtu.be/e5_auZoh85w?si=rmZydLxdxBhgYTF6)
 
 ## 技术点
-- Moti
+- Moti 循环
+- Moti 反向动画
 - Animated
+- css 发光效果
 
 ## package
 
@@ -19,7 +21,7 @@ const desc = `
 export default function Day31Screen() {
   return (
     <DayHome
-      title="PhoneRingIndicatorWave"
+      title="Loading Animation"
       description={desc}
       buttons={[
         {
