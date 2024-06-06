@@ -144,6 +144,11 @@ const days: DayItem[] = [
     day: 27,
     title: "Simple Workout List with Circular Thumbnails",
     link: "https://youtu.be/rd25WOhp9Co?si=IY_po3SvWiy7d02I"
+  },
+  {
+    day: 28,
+    title: "Simple Profile Cards",
+    link: "https://youtu.be/heZBofCfap4?si=u2VlLkPxAFYy76ye"
   }
 ];
 
