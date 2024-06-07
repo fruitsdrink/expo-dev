@@ -15,10 +15,10 @@ const desc = `
 ## 文档资料
 `;
 
-export default function Day31Screen() {
+export default function Day33Screen() {
   return (
     <DayHome
-      title="Loading Animation"
+      title="Animated Switch"
       description={desc}
       buttons={[
         {
