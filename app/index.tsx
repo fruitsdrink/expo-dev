@@ -179,6 +179,11 @@ const days: DayItem[] = [
     day: 34,
     title: "画廊视图",
     link: "https://youtu.be/gjC2oUJhePE?si=oSNa4bOlaB1PtrTW"
+  },
+  {
+    day: 35,
+    title: "FlatList 滚动动画",
+    link: "https://youtu.be/F8x-dyIsrJ8?si=m777R0c7_9a1IfXW"
   }
 ];
 
