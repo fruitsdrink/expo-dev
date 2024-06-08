@@ -134,7 +134,7 @@ export default function Day35DemoScreen() {
           }}
         />
       </View>
-      <StatusBar style="auto" hidden={true} />
+      <StatusBar hidden={true} />
     </>
   );
 }
