@@ -184,6 +184,21 @@ const days: DayItem[] = [
     day: 35,
     title: "FlatList 滚动动画",
     link: "https://youtu.be/F8x-dyIsrJ8?si=m777R0c7_9a1IfXW"
+  },
+  {
+    day: 36,
+    title: "同步背景轮播动画",
+    link: "https://youtu.be/gOj4BlzYF4A?si=VsI5EIBB1YN2tK2T"
+  },
+  {
+    day: 37,
+    title: "3D轮播动画",
+    link: "https://youtu.be/k2ax0t4dYAY?si=AUodSn3CV4or5WeH"
+  },
+  {
+    day: 38,
+    title: "粘性底栏",
+    link: "https://youtu.be/4Pw4du1IrDs?si=gLRrvzWohanP4p3W"
   }
 ];
 
