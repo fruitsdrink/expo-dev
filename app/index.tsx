@@ -209,6 +209,11 @@ const days: DayItem[] = [
     day: 40,
     title: "倒计时",
     link: "https://youtu.be/z9l5WXPKCpA?si=KZAwcOv9k2RjWAWw"
+  },
+  {
+    day: 41,
+    title: "视差轮播",
+    link: "https://youtu.be/fSuYM86JXFo?si=2ODk8bfZ4H4rOINN"
   }
 ];
 
