@@ -219,6 +219,11 @@ const days: DayItem[] = [
     day: 42,
     title: "FlatList Carousel Animation",
     link: "https://youtu.be/YE7c6ch2msY?si=BCEiCB8vJN9Muq10"
+  },
+  {
+    day: 43,
+    title: "Progress Bar Indicator",
+    link: "https://youtu.be/J95MC2Koymc?si=1dWNPYo4yRPmfIgx"
   }
 ];
 
