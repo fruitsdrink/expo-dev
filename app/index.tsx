@@ -214,6 +214,11 @@ const days: DayItem[] = [
     day: 41,
     title: "视差轮播",
     link: "https://youtu.be/fSuYM86JXFo?si=2ODk8bfZ4H4rOINN"
+  },
+  {
+    day: 42,
+    title: "FlatList Carousel Animation",
+    link: "https://youtu.be/YE7c6ch2msY?si=BCEiCB8vJN9Muq10"
   }
 ];
 
