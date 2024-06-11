@@ -19,7 +19,7 @@ const desc = `
 
 `;
 
-export default function Day38Screen() {
+export default function Day39Screen() {
   return (
     <DayHome
       title="Custom carousel and pagination"

@@ -204,6 +204,11 @@ const days: DayItem[] = [
     day: 39,
     title: "自定义轮播和分页",
     link: "https://youtu.be/FIAPuq24b0g?si=NUTOqEIk3xGSU8GV"
+  },
+  {
+    day: 40,
+    title: "倒计时",
+    link: "https://youtu.be/z9l5WXPKCpA?si=KZAwcOv9k2RjWAWw"
   }
 ];
 
