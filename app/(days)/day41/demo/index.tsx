@@ -1,19 +1,8 @@
-import {
-  Dimensions,
-  StyleSheet,
-  View,
-  Text,
-  Animated,
-  TouchableOpacity,
-  Vibration,
-  FlatList,
-  Image
-} from "react-native";
+import { Dimensions, StyleSheet, View, Animated, Image } from "react-native";
 
 import { StatusBar } from "expo-status-bar";
 import { Stack } from "expo-router";
-import { useCallback, useEffect, useRef, useState } from "react";
-import { TextInput } from "react-native-gesture-handler";
+import { useRef } from "react";
 
 const { width, height } = Dimensions.get("screen");
 const ITEM_WIDTH = width * 0.76;
