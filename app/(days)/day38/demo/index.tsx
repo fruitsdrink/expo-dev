@@ -15,7 +15,6 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Entypo } from "@expo/vector-icons";
 import { Stack } from "expo-router";
 import { faker, he } from "@faker-js/faker";
-import Constants from "expo-constants";
 import { useRef, useState } from "react";
 
 const articleParagraphs = [

@@ -9,7 +9,6 @@ const desc = `
 - ScrollView
 - scroll sticky
 - 粘性低栏
-- expo-constants组件的使用
 
 ## 文档资料
 

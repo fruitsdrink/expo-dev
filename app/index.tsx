@@ -199,6 +199,11 @@ const days: DayItem[] = [
     day: 38,
     title: "粘性底栏",
     link: "https://youtu.be/4Pw4du1IrDs?si=gLRrvzWohanP4p3W"
+  },
+  {
+    day: 39,
+    title: "自定义轮播和分页",
+    link: "https://youtu.be/FIAPuq24b0g?si=NUTOqEIk3xGSU8GV"
   }
 ];
 
