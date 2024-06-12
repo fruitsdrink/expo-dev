@@ -229,6 +229,11 @@ const days: DayItem[] = [
     day: 44,
     title: "Animated Tabs",
     link: "https://youtu.be/ZiSN9uik6OY?si=udwyTtFNayHb6_mk"
+  },
+  {
+    day: 45,
+    title: "Animate words",
+    link: "https://youtu.be/mwZPCA6Du5A?si=dPltgDUGxuLH8GCJ"
   }
 ];
 
