@@ -224,6 +224,11 @@ const days: DayItem[] = [
     day: 43,
     title: "Progress Bar Indicator",
     link: "https://youtu.be/J95MC2Koymc?si=1dWNPYo4yRPmfIgx"
+  },
+  {
+    day: 44,
+    title: "Animated Tabs",
+    link: "https://youtu.be/ZiSN9uik6OY?si=udwyTtFNayHb6_mk"
   }
 ];
 
