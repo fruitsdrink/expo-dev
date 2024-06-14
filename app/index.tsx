@@ -239,6 +239,11 @@ const days: DayItem[] = [
     day: 46,
     title: "根据屏幕方向调整尺寸",
     link: "https://youtu.be/dxtT-wN6psg?si=5fA6NZ5gcJxlHxQn"
+  },
+  {
+    day: 47,
+    title: "Local-first application with Prisma",
+    link: "https://www.youtube.com/live/65Iqes0lxpQ?si=xCgJfhPfrmM9RN7l"
   }
 ];
 
