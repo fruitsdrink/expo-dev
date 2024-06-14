@@ -22,6 +22,7 @@ yarn add @tanstack/react-query
 - [Bringing Prisma ORM to React Native and Expo](https://www.prisma.io/blog/bringing-prisma-orm-to-react-native-and-expo)
 - [Early Access: Prisma ORM for React Native and Expo](https://github.com/prisma/react-native-prisma)
 - [react query的isLoading & isFetching的区别](https://www.codemzy.com/blog/react-query-isloading-vs-isfetching)
+- [animatereactnative](https://www.animatereactnative.com)
 `;
 
 export default function Day47Screen() {
