@@ -74,7 +74,8 @@
             }
           }
         }
-      ]
+      ],
+      "@prisma/react-native"
     ],
     "experiments": {
       "typedRoutes": true
