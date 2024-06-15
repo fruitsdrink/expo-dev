@@ -259,6 +259,11 @@ const days: DayItem[] = [
     day: 50,
     title: "Hello Animations",
     link: "https://youtu.be/eCBv1S9tI8Q?si=YZDc6DpM4qtKqKMu"
+  },
+  {
+    day: 51,
+    title: "Shake Animation in React Native (Reanimated)",
+    link: "https://youtu.be/1yVL4O7TIas?si=AujPd1DFK5ypMdKK"
   }
 ];
 
