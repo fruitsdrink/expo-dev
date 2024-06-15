@@ -249,6 +249,11 @@ const days: DayItem[] = [
     day: 48,
     title: "Lava lamp animation",
     link: "https://www.youtube.com/live/MSOVj6raMcc?si=0H7n11ZKv4qTCHbQ"
+  },
+  {
+    day: 49,
+    title: "Tarot wheel animation",
+    link: "https://www.youtube.com/live/Y4WllzY7xj0?si=zVFDGXnonN773zYc"
   }
 ];
 
