@@ -43,6 +43,7 @@
     "expo-updates": "~0.25.14",
     "lottie-react-native": "6.7.0",
     "moti": "^0.29.0",
+    "randomcolor": "^0.6.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.74.1",
@@ -63,6 +64,7 @@
     "@babel/core": "^7.20.0",
     "@babel/plugin-proposal-decorators": "^7.24.6",
     "@morrowdigital/watermelondb-expo-plugin": "^2.3.3",
+    "@types/randomcolor": "^0.5.9",
     "@types/react": "~18.2.45",
     "typescript": "~5.3.3"
   },

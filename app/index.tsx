@@ -244,6 +244,11 @@ const days: DayItem[] = [
     day: 47,
     title: "Local-first application with Prisma",
     link: "https://www.youtube.com/live/65Iqes0lxpQ?si=xCgJfhPfrmM9RN7l"
+  },
+  {
+    day: 48,
+    title: "Lava lamp animation",
+    link: "https://www.youtube.com/live/MSOVj6raMcc?si=0H7n11ZKv4qTCHbQ"
   }
 ];
 
