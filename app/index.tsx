@@ -289,6 +289,11 @@ const days: DayItem[] = [
     day: 56,
     title: "Animate on DoubleTap like Instagram",
     link: "https://youtu.be/nbEmo0zLJjw?si=w_Pq29r4CeuMujmM"
+  },
+  {
+    day: 57,
+    title: "ScrollView from scratch with PanGesture",
+    link: "https://youtu.be/Fd5FWxx7c48?si=UwxXG0J2oRkLFlGQ"
   }
 ];
 
