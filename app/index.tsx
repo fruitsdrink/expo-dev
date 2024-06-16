@@ -279,6 +279,11 @@ const days: DayItem[] = [
     day: 54,
     title: "Reanimated Interpolate Colors",
     link: "https://youtu.be/U_V9pHnTXjA?si=5k9juunWAwf9W74o"
+  },
+  {
+    day: 55,
+    title: "PinchGestureHandler",
+    link: "https://youtu.be/R7vyLItMQJw?si=cSV3l5Dl4dTdvkC0"
   }
 ];
 
