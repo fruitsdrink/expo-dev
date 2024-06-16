@@ -269,6 +269,11 @@ const days: DayItem[] = [
     day: 52,
     title: "PanGestureHandler",
     link: "https://youtu.be/4HUreYYoE6U?si=0YIDLjdvwl72tGJC"
+  },
+  {
+    day: 53,
+    title: "Reanimated ScrollView",
+    link: "https://youtu.be/SqwpRr7kbnQ?si=TulDQGZ9HIYP_cKf"
   }
 ];
 
