@@ -284,6 +284,11 @@ const days: DayItem[] = [
     day: 55,
     title: "PinchGestureHandler",
     link: "https://youtu.be/R7vyLItMQJw?si=cSV3l5Dl4dTdvkC0"
+  },
+  {
+    day: 56,
+    title: "Animate on DoubleTap like Instagram",
+    link: "https://youtu.be/nbEmo0zLJjw?si=w_Pq29r4CeuMujmM"
   }
 ];
 
