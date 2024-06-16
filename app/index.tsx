@@ -299,6 +299,11 @@ const days: DayItem[] = [
     day: 58,
     title: "Color Picker Animation",
     link: "https://youtu.be/XH35ahDm3as?si=jg5IraXVPBAnfPXB"
+  },
+  {
+    day: 59,
+    title: "Circular Progress Bar Animation",
+    link: "https://youtu.be/9n2mQJ7TO6Y?si=3Pa2G5Y7wGr6MTh4"
   }
 ];
 
