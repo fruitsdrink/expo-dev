@@ -264,6 +264,11 @@ const days: DayItem[] = [
     day: 51,
     title: "Shake Animation in React Native (Reanimated)",
     link: "https://youtu.be/1yVL4O7TIas?si=AujPd1DFK5ypMdKK"
+  },
+  {
+    day: 52,
+    title: "PanGestureHandler",
+    link: "https://youtu.be/4HUreYYoE6U?si=0YIDLjdvwl72tGJC"
   }
 ];
 
