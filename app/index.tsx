@@ -274,6 +274,11 @@ const days: DayItem[] = [
     day: 53,
     title: "Reanimated ScrollView",
     link: "https://youtu.be/SqwpRr7kbnQ?si=TulDQGZ9HIYP_cKf"
+  },
+  {
+    day: 54,
+    title: "Reanimated Interpolate Colors",
+    link: "https://youtu.be/U_V9pHnTXjA?si=5k9juunWAwf9W74o"
   }
 ];
 
