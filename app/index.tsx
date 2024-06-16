@@ -294,6 +294,11 @@ const days: DayItem[] = [
     day: 57,
     title: "ScrollView from scratch with PanGesture",
     link: "https://youtu.be/Fd5FWxx7c48?si=UwxXG0J2oRkLFlGQ"
+  },
+  {
+    day: 58,
+    title: "Color Picker Animation",
+    link: "https://youtu.be/XH35ahDm3as?si=jg5IraXVPBAnfPXB"
   }
 ];
 

@@ -9,7 +9,7 @@ const desc = `
 
 `;
 
-export default function Day42Screen() {
+export default function DayScreen() {
   return (
     <DayHome
       title=""
