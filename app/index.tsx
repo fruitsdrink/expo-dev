@@ -309,6 +309,11 @@ const days: DayItem[] = [
     day: 60,
     title: "Swipe to delete Animation",
     link: "https://youtu.be/AVS_2nzt8Do?si=sCFrgoFtpqObdAsa"
+  },
+  {
+    day: 61,
+    title: "Ripple Effect Animation",
+    link: "https://youtu.be/QxGQwRqxbSA?si=WU2LVMVLXYBmDOR0"
   }
 ];
 
