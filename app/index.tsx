@@ -304,6 +304,11 @@ const days: DayItem[] = [
     day: 59,
     title: "Circular Progress Bar Animation",
     link: "https://youtu.be/9n2mQJ7TO6Y?si=3Pa2G5Y7wGr6MTh4"
+  },
+  {
+    day: 60,
+    title: "Swipe to delete Animation",
+    link: "https://youtu.be/AVS_2nzt8Do?si=sCFrgoFtpqObdAsa"
   }
 ];
 
