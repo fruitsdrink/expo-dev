@@ -314,6 +314,11 @@ const days: DayItem[] = [
     day: 61,
     title: "Ripple Effect Animation",
     link: "https://youtu.be/QxGQwRqxbSA?si=WU2LVMVLXYBmDOR0"
+  },
+  {
+    day: 62,
+    title: "Sliding Counter Animation",
+    link: "https://youtu.be/KlUi2BCUIic?si=kFwcm0hh1N79iQlfs"
   }
 ];
 
