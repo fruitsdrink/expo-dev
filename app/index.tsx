@@ -334,6 +334,11 @@ const days: DayItem[] = [
     day: 65,
     title: "The magic of Layout Animations",
     link: "https://youtu.be/p3BLiloo2UM?si=7_u7WtlEpzGjWqe7"
+  },
+  {
+    day: 66,
+    title: "Animated FlatList",
+    link: "https://youtu.be/3ox0R5jPb04?si=_zKIOFFU23yfVvhV"
   }
 ];
 
