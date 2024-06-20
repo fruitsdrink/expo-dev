@@ -339,6 +339,11 @@ const days: DayItem[] = [
     day: 66,
     title: "Animated FlatList",
     link: "https://youtu.be/3ox0R5jPb04?si=_zKIOFFU23yfVvhV"
+  },
+  {
+    day: 67,
+    title: "Dropdown Menu Animation",
+    link: "https://youtu.be/LtgHWjf7BA8?si=dZyYFa5E53vstNxG"
   }
 ];
 
