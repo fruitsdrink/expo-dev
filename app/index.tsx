@@ -329,6 +329,11 @@ const days: DayItem[] = [
     day: 64,
     title: "Clock Loader Animation",
     link: "https://youtu.be/YbIXcA2fcLU?si=o-uwnSSRFhQMLlD7"
+  },
+  {
+    day: 65,
+    title: "The magic of Layout Animations",
+    link: "https://youtu.be/p3BLiloo2UM?si=7_u7WtlEpzGjWqe7"
   }
 ];
 
