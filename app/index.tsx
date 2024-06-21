@@ -349,6 +349,11 @@ const days: DayItem[] = [
     day: 68,
     title: "Circular Carousel Animation",
     link: "https://youtu.be/-ZXedIjj4H8?si=E4KYCHs-7Spt7IGx"
+  },
+  {
+    day: 69,
+    title: "Skeleton Animation",
+    link: "https://youtu.be/vunwBbFx_F8?si=e9b-B6wu0EopFmgU"
   }
 ];
 
