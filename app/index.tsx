@@ -354,6 +354,11 @@ const days: DayItem[] = [
     day: 69,
     title: "Skeleton Animation",
     link: "https://youtu.be/vunwBbFx_F8?si=e9b-B6wu0EopFmgU"
+  },
+  {
+    day: 70,
+    title: "Custom Segmented Control",
+    link: "https://youtu.be/RTYNKDODSfw?si=Qriwx3MOji95T3iT"
   }
 ];
 
