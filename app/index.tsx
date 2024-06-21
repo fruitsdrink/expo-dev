@@ -359,6 +359,11 @@ const days: DayItem[] = [
     day: 70,
     title: "Custom Segmented Control",
     link: "https://youtu.be/RTYNKDODSfw?si=Qriwx3MOji95T3iT"
+  },
+  {
+    day: 71,
+    title: "Introduction to Gesture Handler 2 ",
+    link: "https://youtu.be/xpT2shjX790?si=ssjR1JlxF4H2j1Lw"
   }
 ];
 
