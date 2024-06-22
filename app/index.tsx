@@ -404,6 +404,11 @@ const days: DayItem[] = [
     day: 79,
     title: "React Native Advanced Onboarding",
     link: "https://youtu.be/OT-73hpwxXQ?si=T86Pen3tegZwG-5Y"
+  },
+  {
+    day: 80,
+    title: "The Power of Lottie",
+    link: "https://youtu.be/fLbtTL0rOcU?si=F93xxUahfqV6EPR2"
   }
 ];
 

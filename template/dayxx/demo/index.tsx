@@ -2,9 +2,8 @@ import { Dimensions, StyleSheet, View } from "react-native";
 
 import { StatusBar } from "expo-status-bar";
 import { Stack } from "expo-router";
-import { useRef } from "react";
 
-const { width, height } = Dimensions.get("screen");
+const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
 
 export default function DemoScreen() {
   return (
