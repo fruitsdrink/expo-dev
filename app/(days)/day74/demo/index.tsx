@@ -59,7 +59,7 @@ const CustomTouchable: React.FC<CustomTouchableProps> = ({
         { rotate: withSpring(isActive.value ? `${Math.PI / 12}rad` : "0rad") },
         { scale: withSpring(isActive.value ? 0.95 : 1) }
       ]
-    };
+    } as const;
   }, []);
 
   return (
