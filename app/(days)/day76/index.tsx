@@ -5,7 +5,8 @@ const desc = `
 
 [youtube](https://youtu.be/HOxZegqnDC4?si=DuoEav7IzlJny4hF)
 
-## 技术点
+## package
+- [react-native-skia-gesture](https://github.com/enzomanuelmangano/react-native-skia-gesture)
 
 `;
 
