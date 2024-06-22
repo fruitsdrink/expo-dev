@@ -394,6 +394,11 @@ const days: DayItem[] = [
     day: 77,
     title: "Grid Magnification",
     link: "https://youtu.be/zV0SGIlrtug?si=RWVdusI4ZNKz7ysv"
+  },
+  {
+    day: 78,
+    title: "Introduction to Animated API (React Native)",
+    link: "https://youtu.be/PfC5Phrueww?si=MZ5wZByKkF0dYCgY"
   }
 ];
 
