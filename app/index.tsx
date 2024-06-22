@@ -369,6 +369,11 @@ const days: DayItem[] = [
     day: 72,
     title: "BottomSheet from scratch",
     link: "https://youtu.be/KvRqsRwpwhY?si=dWaCLubBpz0m6zJ_"
+  },
+  {
+    day: 73,
+    title: "Animated 3D Card",
+    link: "https://youtu.be/pVesCl7TY8A?si=CBsHY1T9RqCk2lJS"
   }
 ];
 
