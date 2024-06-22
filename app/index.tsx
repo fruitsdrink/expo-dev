@@ -374,6 +374,11 @@ const days: DayItem[] = [
     day: 73,
     title: "Animated 3D Card",
     link: "https://youtu.be/pVesCl7TY8A?si=CBsHY1T9RqCk2lJS"
+  },
+  {
+    day: 74,
+    title: "Improving Tap Gestures",
+    link: "https://youtu.be/DWFS_dSnJOs?si=oFqMQRDPinZq32GE"
   }
 ];
 
