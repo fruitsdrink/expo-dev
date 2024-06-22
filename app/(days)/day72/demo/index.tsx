@@ -2,12 +2,7 @@ import { Dimensions, StyleSheet, TouchableOpacity, View } from "react-native";
 
 import { StatusBar } from "expo-status-bar";
 import { Stack } from "expo-router";
-import React, {
-  useCallback,
-  useEffect,
-  useImperativeHandle,
-  useRef
-} from "react";
+import React, { useCallback, useImperativeHandle, useRef } from "react";
 import {
   Gesture,
   GestureDetector,
@@ -16,6 +11,7 @@ import {
 import Animated, {
   Extrapolation,
   interpolate,
+  useAnimatedProps,
   useAnimatedStyle,
   useSharedValue,
   withSpring,
@@ -60,7 +56,7 @@ const BottomSheet = React.forwardRef<BottomSheetRefProps, BottomSheetProps>(
       [scrollTo, isActive]
     );
 
-    const gesture = Gesture.Pan()
+    const pan = Gesture.Pan()
       .onStart(() => {
         context.value.y = translateY.value;
       })
@@ -89,11 +85,43 @@ const BottomSheet = React.forwardRef<BottomSheetRefProps, BottomSheetProps>(
       };
     });
 
+    const rBackdropStyle = useAnimatedStyle(() => {
+      return {
+        // display: active.value ? "flex" : "none"
+        opacity: withTiming(active.value ? 1 : 0)
+      };
+    }, []);
+
+    const rBackdropProps = useAnimatedProps(() => {
+      return {
+        pointerEvents: active.value ? "auto" : "none"
+      } as const;
+    }, []);
+
+    const tap = Gesture.Tap()
+      .onStart(() => {
+        scrollTo(0);
+      })
+      .simultaneousWithExternalGesture(pan);
+
     return (
-      <GestureDetector gesture={gesture}>
-        <Animated.View style={[bottomSheetStyles.contianer, rStyle]}>
-          <View style={bottomSheetStyles.line} />
-          {children}
+      <GestureDetector gesture={tap}>
+        <Animated.View
+          animatedProps={rBackdropProps}
+          style={[
+            {
+              ...StyleSheet.absoluteFillObject,
+              backgroundColor: "rgba(0,0,0,0.4)"
+            },
+            rBackdropStyle
+          ]}
+        >
+          <GestureDetector gesture={pan}>
+            <Animated.View style={[bottomSheetStyles.contianer, rStyle]}>
+              <View style={bottomSheetStyles.line} />
+              {children}
+            </Animated.View>
+          </GestureDetector>
         </Animated.View>
       </GestureDetector>
     );
@@ -135,9 +163,9 @@ export default function DemoScreen() {
   return (
     <>
       <Stack.Screen options={{ headerShown: false }} />
-      <GestureHandlerRootView style={{ flex: 1 }}>
+      <GestureHandlerRootView>
         <View style={styles.container}>
-          <StatusBar style="inverted" />
+          <StatusBar style="dark" />
           <TouchableOpacity style={styles.button} onPress={onPress} />
           <BottomSheet ref={ref}>
             <View style={{ flex: 1, backgroundColor: "blue" }}></View>
@@ -151,14 +179,14 @@ export default function DemoScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#333",
+    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center"
   },
   button: {
     width: 50,
     aspectRatio: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "orange",
     borderRadius: 25,
     opacity: 0.6
   }
