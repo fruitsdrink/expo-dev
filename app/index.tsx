@@ -362,8 +362,13 @@ const days: DayItem[] = [
   },
   {
     day: 71,
-    title: "Introduction to Gesture Handler 2 ",
+    title: "Introduction to Gesture Handler 2",
     link: "https://youtu.be/xpT2shjX790?si=ssjR1JlxF4H2j1Lw"
+  },
+  {
+    day: 72,
+    title: "BottomSheet from scratch",
+    link: "https://youtu.be/KvRqsRwpwhY?si=dWaCLubBpz0m6zJ_"
   }
 ];
 
