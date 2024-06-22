@@ -5,8 +5,11 @@ const desc = `
 
 [youtube](https://youtu.be/OT-73hpwxXQ?si=T86Pen3tegZwG-5Y)
 
-## 技术点
+## Inspirations
+- https://dribbble.com/shots/5350361-SkateBoard-Decks
 
+# 相关资源
+https://www.youtube.com/watch?v=yz9E10Dq8Bg&list=PLjHsmVtnAr9TWoMAh-3QMiP7bPUqPFuFZ&index=2
 `;
 
 export default function DayScreen() {
