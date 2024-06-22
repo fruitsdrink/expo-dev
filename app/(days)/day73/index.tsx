@@ -9,7 +9,12 @@ const desc = `
 - skia
 
 ## packate
-- skia
+- [react-native-skia](https://shopify.github.io/react-native-skia/)
+
+## doc
+- https://docs.expo.dev/versions/latest/sdk/skia/
+- https://skia.org
+- https://shopify.github.io/react-native-skia/
 `;
 
 export default function DayScreen() {
