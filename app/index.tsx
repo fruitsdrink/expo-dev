@@ -384,6 +384,11 @@ const days: DayItem[] = [
     day: 75,
     title: "Animated Gradien",
     link: "https://youtu.be/ZSPvvGU2LBg?si=PfyB7dRN6X8AGU_3"
+  },
+  {
+    day: 76,
+    title: "Metaball Animation",
+    link: "https://youtu.be/HOxZegqnDC4?si=DuoEav7IzlJny4hF"
   }
 ];
 
