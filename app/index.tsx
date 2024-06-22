@@ -379,6 +379,11 @@ const days: DayItem[] = [
     day: 74,
     title: "Improving Tap Gestures",
     link: "https://youtu.be/DWFS_dSnJOs?si=oFqMQRDPinZq32GE"
+  },
+  {
+    day: 75,
+    title: "Animated Gradien",
+    link: "https://youtu.be/ZSPvvGU2LBg?si=PfyB7dRN6X8AGU_3"
   }
 ];
 
