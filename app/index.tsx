@@ -429,6 +429,11 @@ const days: DayItem[] = [
     day: 84,
     title: "Expo Router Drawer",
     link: "https://youtu.be/3p9LtOUg5fw?si=jKZfuP-lkoynmgda"
+  },
+  {
+    day: 85,
+    title: "Gradient Clock Tutorial",
+    link: "https://youtu.be/W6yvb-oAq48?si=T1BhCixSXUUNkjtW"
   }
 ];
 
