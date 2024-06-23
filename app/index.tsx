@@ -417,6 +417,11 @@ const days: DayItem[] = [
   },
   {
     day: 82,
+    title: "Expo Layout Tabs",
+    link: ""
+  },
+  {
+    day: 83,
     title: "React Native: Custom Tab Bar Indicator",
     link: "https://youtu.be/CHEcQdpcuqo?si=8do85Tb6XXPX07D-"
   }
