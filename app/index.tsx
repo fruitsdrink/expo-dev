@@ -419,6 +419,11 @@ const days: DayItem[] = [
     day: 82,
     title: "Expo Layout Tabs",
     link: ""
+  },
+  {
+    day: 83,
+    title: "Animated Landing Screen ",
+    link: "https://youtu.be/MnqWZrXLZ8M?si=YcGI_Pjw5GO7qLva"
   }
 ];
 

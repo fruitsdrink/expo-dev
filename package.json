@@ -61,6 +61,7 @@
     "react-native-screens": "3.31.1",
     "react-native-skia-gesture": "^0.3.5",
     "react-native-svg": "^15.3.0",
+    "react-native-swiper": "^1.6.0",
     "react-native-vision-camera": "^4.0.4",
     "react-native-web": "~0.19.11",
     "vexo-analytics": "^1.3.14",
