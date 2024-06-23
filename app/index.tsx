@@ -422,8 +422,13 @@ const days: DayItem[] = [
   },
   {
     day: 83,
-    title: "Animated Landing Screen ",
+    title: "Animated Landing Screen",
     link: "https://youtu.be/MnqWZrXLZ8M?si=YcGI_Pjw5GO7qLva"
+  },
+  {
+    day: 84,
+    title: "Expo Router Drawer",
+    link: "https://youtu.be/3p9LtOUg5fw?si=jKZfuP-lkoynmgda"
   }
 ];
 
