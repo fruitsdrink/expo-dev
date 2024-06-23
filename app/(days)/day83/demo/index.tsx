@@ -1,5 +1,5 @@
 import { View } from "react-native";
 
-export default function Layout() {
+export default function DemoLayout() {
   return <View></View>;
 }
