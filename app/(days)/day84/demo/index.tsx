@@ -1,15 +1,17 @@
 import { useNavigation } from "expo-router";
-import { View, Text, StyleSheet } from "react-native";
+import { DrawerActions } from "@react-navigation/native";
+import { View, Text, StyleSheet, Button } from "react-native";
 
 export default function Page() {
   const navigation = useNavigation();
 
   const onToggleDrawer = () => {
-    navigation.dispatch(DrawerActions);
+    navigation.dispatch(DrawerActions.openDrawer());
   };
   return (
     <View style={styles.container}>
-      <Text>Index</Text>
+      <Text>Home</Text>
+      <Button title="Open Drawer" onPress={onToggleDrawer} />
     </View>
   );
 }
