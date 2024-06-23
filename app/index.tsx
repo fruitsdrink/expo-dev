@@ -414,6 +414,11 @@ const days: DayItem[] = [
     day: 81,
     title: "Create a Drag and Drop Puzzle/Sorting",
     link: "https://youtu.be/219Rv7qUEZw?si=FzyJ2KdFON0TyIn2"
+  },
+  {
+    day: 82,
+    title: "React Native: Custom Tab Bar Indicator",
+    link: "https://youtu.be/CHEcQdpcuqo?si=8do85Tb6XXPX07D-"
   }
 ];
 
