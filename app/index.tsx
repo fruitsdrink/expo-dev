@@ -432,8 +432,13 @@ const days: DayItem[] = [
   },
   {
     day: 85,
-    title: "Gradient Clock Tutorial",
+    title: "Gradient Clock Skia",
     link: "https://youtu.be/W6yvb-oAq48?si=T1BhCixSXUUNkjtW"
+  },
+  {
+    day: 86,
+    title: "Chasing Finger Bubbles Skia",
+    link: "https://youtu.be/-KbdX_Xa-Gc?si=JFw5cf-bOjXLnaWJ"
   }
 ];
 

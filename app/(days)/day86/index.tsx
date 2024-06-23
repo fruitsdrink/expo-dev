@@ -1,9 +1,9 @@
 import { DayHome } from "@/components";
 
 const desc = `
-# Gradient Clock Tutorial with Expo (Reanimated 3 + React-Native Skia) 
+# Chasing Finger Bubbles Animation with Expo and React Native Skia
 
-[youtube](https://youtu.be/W6yvb-oAq48?si=T1BhCixSXUUNkjtW)
+[youtube](https://youtu.be/-KbdX_Xa-Gc?si=d3BosjgSgLPohElp)
 
 ## 技术点
 - skia
@@ -16,7 +16,7 @@ export default function DayScreen() {
       description={desc}
       buttons={[
         {
-          link: "/day85/demo"
+          link: "/day86/demo"
         }
       ]}
     />
