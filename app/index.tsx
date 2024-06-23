@@ -409,6 +409,11 @@ const days: DayItem[] = [
     day: 80,
     title: "The Power of Lottie",
     link: "https://youtu.be/fLbtTL0rOcU?si=F93xxUahfqV6EPR2"
+  },
+  {
+    day: 81,
+    title: "Create a Drag and Drop Puzzle/Sorting",
+    link: "https://youtu.be/219Rv7qUEZw?si=FzyJ2KdFON0TyIn2"
   }
 ];
 
