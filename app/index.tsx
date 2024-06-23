@@ -439,6 +439,11 @@ const days: DayItem[] = [
     day: 86,
     title: "Chasing Finger Bubbles Skia",
     link: "https://youtu.be/-KbdX_Xa-Gc?si=JFw5cf-bOjXLnaWJ"
+  },
+  {
+    day: 87,
+    title: "Blur Bottom Sheet",
+    link: "https://youtu.be/kbA2rK9AxMk?si=_rfiMYQh3PQ3LG7k"
   }
 ];
 
