@@ -449,6 +449,11 @@ const days: DayItem[] = [
     day: 88,
     title: "Custom Tab Navigation",
     link: "https://youtu.be/K6OJP0s5VDQ?si=P50Zd3Ov96HFF3B3"
+  },
+  {
+    day: 89,
+    title: "Twitter Style Loading Screen",
+    link: "https://youtu.be/xrSOeCivwFk?si=2P8OzBLetsgYhxAO"
   }
 ];
 
