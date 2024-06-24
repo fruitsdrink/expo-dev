@@ -459,6 +459,11 @@ const days: DayItem[] = [
     day: 90,
     title: "Floating Action Button",
     link: "https://youtu.be/IEyUouhcuNQ?si=16nqddFAUT5xtOFE"
+  },
+  {
+    day: 91,
+    title: "Floating Hearts Animation",
+    link: "https://youtu.be/_SC3BxI-1xA?si=6wQCIRiMK28-4ZTh"
   }
 ];
 
