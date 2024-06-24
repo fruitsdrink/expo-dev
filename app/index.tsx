@@ -444,6 +444,11 @@ const days: DayItem[] = [
     day: 87,
     title: "Blur Bottom Sheet",
     link: "https://youtu.be/kbA2rK9AxMk?si=_rfiMYQh3PQ3LG7k"
+  },
+  {
+    day: 88,
+    title: "Custom Tab Navigation",
+    link: "https://youtu.be/K6OJP0s5VDQ?si=P50Zd3Ov96HFF3B3"
   }
 ];
 
