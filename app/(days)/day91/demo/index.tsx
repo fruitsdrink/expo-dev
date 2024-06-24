@@ -23,6 +23,13 @@ function getRandomNumber(min: number, max: number) {
   return Math.random() * (max - min) + min;
 }
 
+function getRandomColor() {
+  return `rgb(${getRandomNumber(100, 400)},${getRandomNumber(
+    10,
+    200
+  )}, ${getRandomNumber(200, 244)})`;
+}
+
 type HeartPorps = {
   color?: ColorValue;
   style?: StyleProp<ViewStyle>;
@@ -37,10 +44,12 @@ const Heart: React.FC<HeartPorps> = ({ style, color }) => {
 
 type HeartContainerProps = {
   style: StyleProp<ViewStyle>;
+  color: ColorValue;
   onCompleted: () => void;
 };
 const HeartContainer: React.FC<HeartContainerProps> = ({
   style,
+  color,
   onCompleted
 }) => {
   const position = useRef(new Animated.Value(0)).current;
@@ -50,7 +59,7 @@ const HeartContainer: React.FC<HeartContainerProps> = ({
       toValue: negativeEndY,
       duration: 2000,
       easing: Easing.linear,
-      useNativeDriver: true
+      useNativeDriver: false
     }).start(() => {
       onCompleted();
     });
@@ -60,33 +69,71 @@ const HeartContainer: React.FC<HeartContainerProps> = ({
     inputRange: [negativeEndY, 0],
     outputRange: [animationEndY, 0]
   });
+
+  const xAnimation = yAnimation.interpolate({
+    inputRange: [
+      0,
+      animationEndY / 6,
+      animationEndY / 3,
+      animationEndY / 2,
+      animationEndY
+    ],
+    outputRange: [0, 25, 15, 0, 10]
+  });
+
+  const rotate = yAnimation.interpolate({
+    inputRange: [
+      0,
+      animationEndY / 6,
+      animationEndY / 3,
+      animationEndY / 2,
+      animationEndY
+    ],
+    outputRange: ["0deg", "-5deg", "0deg", "5deg", "0deg"]
+  });
+
+  const scale = yAnimation.interpolate({
+    inputRange: [0, 15, 30],
+    outputRange: [0, 1.4, 1],
+    extrapolate: "clamp"
+  });
+
   const opacity = yAnimation.interpolate({
     inputRange: [0, animationEndY],
     outputRange: [1, 0]
   });
 
-  const rStyle = {
+  const rStyle: StyleProp<ViewStyle> = {
     opacity,
-    transform: [{ translateY: position }]
+    transform: [
+      { translateY: position },
+      { scale },
+      { translateX: xAnimation },
+      { rotate }
+    ]
   };
 
   return (
     <Animated.View style={[styles.heartContainer, rStyle, style]}>
-      <Heart color={"#f02a4b"} />
+      <Heart color={color} />
     </Animated.View>
   );
 };
 
 export default function DemoScreen() {
-  const [hearts, setHearts] = React.useState<{ id: number; right: number }[]>(
-    []
-  );
+  const [hearts, setHearts] = React.useState<
+    { id: number; right: number; color: ColorValue }[]
+  >([]);
 
   const addHeart = () => {
     setHearts((prev) => {
       return [
         ...prev,
-        { id: new Date().getTime(), right: getRandomNumber(20, 150) }
+        {
+          id: new Date().getTime(),
+          right: getRandomNumber(20, 150),
+          color: getRandomColor()
+        }
       ];
     });
   };
@@ -108,6 +155,7 @@ export default function DemoScreen() {
               <HeartContainer
                 key={item.id}
                 style={{ right: item.right }}
+                color={item.color}
                 onCompleted={() => {
                   removeHeart(item.id);
                 }}
