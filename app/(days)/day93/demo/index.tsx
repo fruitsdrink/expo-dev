@@ -1,5 +1,7 @@
 import {
+  ActivityIndicator,
   Animated,
+  Button,
   Dimensions,
   FlatList,
   Image,
@@ -10,12 +12,14 @@ import {
 } from "react-native";
 
 import { StatusBar } from "expo-status-bar";
-import { Stack } from "expo-router";
+import { Stack, useRouter } from "expo-router";
 import React, { useEffect, useRef, useState } from "react";
 import Svg, { G, Circle } from "react-native-svg";
 import { AntDesign } from "@expo/vector-icons";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
+const asyncStoorageKey = "day93@viewedOnboarding";
 
 const slides = [
   {
@@ -133,7 +137,6 @@ const paginatorStyles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     height: 64,
-    width: "100%",
     gap: 8
   },
   dot: {
@@ -236,7 +239,10 @@ const nextButtonStyles = StyleSheet.create({
   }
 });
 
-export default function DemoScreen() {
+type OnboardingProps = {
+  onFinish?: () => void;
+};
+const Onboarding: React.FC<OnboardingProps> = ({ onFinish }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollX = useRef(new Animated.Value(0)).current;
   const slidesRef = useRef<FlatList>(null);
@@ -247,17 +253,22 @@ export default function DemoScreen() {
 
   const viewConfig = useRef({ viewAreaCoveragePercentThreshold: 50 }).current;
 
-  const scrollTo = () => {
+  const scrollTo = async () => {
     if (currentIndex < slides.length - 1) {
       slidesRef.current?.scrollToIndex({ index: currentIndex + 1 });
+    } else {
+      try {
+        await AsyncStorage.setItem(asyncStoorageKey, "true");
+        onFinish?.();
+      } catch (error) {
+        console.log("Error @scrollTo", error);
+      }
     }
   };
 
   return (
     <>
-      <Stack.Screen options={{ headerShown: false }} />
-      <View style={styles.container}>
-        <StatusBar hidden />
+      <View style={onboardingStyles.container}>
         <View style={{ flex: 3 }}>
           <FlatList
             data={slides}
@@ -287,6 +298,98 @@ export default function DemoScreen() {
           percentage={(currentIndex + 1) * (100 / slides.length)}
           scrollTo={scrollTo}
         />
+      </View>
+    </>
+  );
+};
+
+const onboardingStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  }
+});
+
+const HomeScreen = () => {
+  const router = useRouter();
+  return (
+    <View style={homeScreenStyles.container}>
+      <Text
+        style={{
+          fontSize: 28,
+          fontWeight: "700",
+          marginBottom: 32
+        }}
+      >
+        HomePage
+      </Text>
+      <View>
+        <Button
+          title={"清空存储显示Onboarding"}
+          onPress={async () => {
+            await AsyncStorage.removeItem(asyncStoorageKey);
+            router.back();
+          }}
+        />
+      </View>
+    </View>
+  );
+};
+
+const homeScreenStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  }
+});
+
+const Loading = () => {
+  return (
+    <View>
+      <ActivityIndicator size={"large"} />
+    </View>
+  );
+};
+
+export default function DemoScreen() {
+  const [loading, setLoading] = useState(true);
+  const [viewedOnboarding, setViewedOnboarding] = useState(false);
+
+  const checkOnboarding = async () => {
+    try {
+      const value = await AsyncStorage.getItem(asyncStoorageKey);
+      if (value) {
+        setViewedOnboarding(true);
+      }
+    } catch (error) {
+      console.log("Error @checkOnboarding", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    checkOnboarding();
+  }, []);
+
+  return (
+    <>
+      <Stack.Screen options={{ headerShown: false }} />
+      <View style={styles.container}>
+        <StatusBar hidden />
+        {loading ? (
+          <Loading />
+        ) : viewedOnboarding ? (
+          <HomeScreen />
+        ) : (
+          <Onboarding
+            onFinish={() => {
+              setViewedOnboarding(true);
+            }}
+          />
+        )}
       </View>
     </>
   );

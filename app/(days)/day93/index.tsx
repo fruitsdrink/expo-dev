@@ -8,6 +8,11 @@ const desc = `
 ## 技术点
 - 分页动画
 - svg动画
+- 存储
+
+## package
+- @react-native-async-storage/async-storage
+- react-native-svg
 `;
 
 export default function DayScreen() {
