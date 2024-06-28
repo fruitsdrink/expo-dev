@@ -474,6 +474,11 @@ const days: DayItem[] = [
     day: 93,
     title: "Onboarding tutorial",
     link: "https://youtu.be/Efy48Uoa4RM?si=OJoYyN8LJXXYtUQj"
+  },
+  {
+    day: 94,
+    title: "FlatList animations",
+    link: "https://youtu.be/yV-2HRzNX9o?si=2XRo8c8FfRbi7IE-"
   }
 ];
 
