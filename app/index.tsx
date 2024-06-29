@@ -494,6 +494,16 @@ const days: DayItem[] = [
     day: 97,
     title: "Double Tap to Heart Animation",
     link: "https://youtu.be/N6Y6NykOGWE?si=x80XZZrZ4X3n9L5E"
+  },
+  {
+    day: 98,
+    title: "Bottom Sheet React Native",
+    link: "https://youtu.be/_lzRvCf4FKE?si=0oLCRS7N2ZKp_IPe"
+  },
+  {
+    day: 99,
+    title: "Medium mobile article - Sticky footer",
+    link: "https://youtu.be/4Pw4du1IrDs?si=kr11QHwCOb4pWvSo"
   }
 ];
 
