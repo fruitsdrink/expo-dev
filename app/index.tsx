@@ -489,6 +489,11 @@ const days: DayItem[] = [
     day: 96,
     title: "Advanced FlatList animations",
     link: "https://youtu.be/cGTD4yYgEHc?si=pCXeL_FQuwNFKmu0"
+  },
+  {
+    day: 97,
+    title: "Double Tap to Heart Animation",
+    link: "https://youtu.be/N6Y6NykOGWE?si=x80XZZrZ4X3n9L5E"
   }
 ];
 
