@@ -484,6 +484,11 @@ const days: DayItem[] = [
     day: 95,
     title: "Custom React Native Drawer animation",
     link: "https://youtu.be/fgUHYGeoG5U?si=qsan5VlYkzdbPeNu"
+  },
+  {
+    day: 96,
+    title: "Advanced FlatList animations",
+    link: "https://youtu.be/cGTD4yYgEHc?si=pCXeL_FQuwNFKmu0"
   }
 ];
 
