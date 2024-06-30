@@ -1,9 +1,9 @@
 import { DayHome } from "@/components";
 
 const desc = `
-# 
+# How to create an animated Carousel in React Native
 
-[youtube]()
+[youtube](https://youtu.be/XFtx09yoX0M)
 
 ## 技术点
 
@@ -16,7 +16,7 @@ export default function DayScreen() {
       description={desc}
       buttons={[
         {
-          link: "/dayxx/demo"
+          link: "/day99/demo"
         }
       ]}
     />

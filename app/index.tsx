@@ -502,8 +502,8 @@ const days: DayItem[] = [
   },
   {
     day: 99,
-    title: "Medium mobile article - Sticky footer",
-    link: "https://youtu.be/4Pw4du1IrDs?si=kr11QHwCOb4pWvSo"
+    title: "animated Carousel",
+    link: "https://youtu.be/XFtx09yoX0M"
   }
 ];
 
