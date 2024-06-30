@@ -504,6 +504,11 @@ const days: DayItem[] = [
     day: 99,
     title: "animated Carousel",
     link: "https://youtu.be/XFtx09yoX0M"
+  },
+  {
+    day: 100,
+    title: "How to add a Custom Font ",
+    link: "https://youtu.be/thON0Os6MJg"
   }
 ];
 

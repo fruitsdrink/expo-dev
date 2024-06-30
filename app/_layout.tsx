@@ -44,6 +44,7 @@ export default function HomeScreen() {
   });
 
   useEffect(() => {
+    console.log("error: ", fontError);
     if (fontsLoaded || fontError) {
       SplashScreen.hideAsync();
     }
