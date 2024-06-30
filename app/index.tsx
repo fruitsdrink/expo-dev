@@ -507,8 +507,13 @@ const days: DayItem[] = [
   },
   {
     day: 100,
-    title: "How to add a Custom Font ",
+    title: "How to add a Custom Font",
     link: "https://youtu.be/thON0Os6MJg"
+  },
+  {
+    day: 101,
+    title: "Data Fetching with TanStack Query",
+    link: "https://www.youtube.com/live/bpHq_-bPkGo?si=rWLI1VWgnp_e2Isg"
   }
 ];
 
