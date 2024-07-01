@@ -7,6 +7,14 @@ const desc = `
 
 ## 技术点
 - tanstack/query
+
+## packate
+\`\`\`
+npx expo install @dev-plugins/react-query
+\`\`\`
+
+## 文档
+- [Optimizing Performance with React Query v5: Best Practices and Tips](https://www.dhiwise.com/post/optimizing-performance-with-react-query-v5-best-practices)
 `;
 
 export default function DayScreen() {
