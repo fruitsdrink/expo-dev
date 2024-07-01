@@ -1,5 +1,5 @@
-import { MovieItem, fetchTopRatedMovies } from "@/lib/tmdb";
-import { useQuery } from "@tanstack/react-query";
+import { MovieItem, fetchTopRatedMovies, getImage } from "@/lib/tmdb";
+import { useInfiniteQuery } from "@tanstack/react-query";
 import { Link } from "expo-router";
 import React, { useEffect, useState } from "react";
 
@@ -22,7 +22,7 @@ const MovieListItem: React.FC<MovieListItemProps> = ({ movie }) => {
       <Pressable style={{ flex: 1 }}>
         <Image
           source={{
-            uri: `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+            uri: getImage(movie.poster_path)
           }}
           style={{
             width: "100%",
@@ -37,10 +37,29 @@ const MovieListItem: React.FC<MovieListItemProps> = ({ movie }) => {
 };
 
 export default function MoviesPage() {
-  const { data, isLoading, error } = useQuery({
+  const [isRefreshing, setIsRefreshing] = useState(false);
+
+  const {
+    data,
+    isLoading,
+    error,
+    fetchNextPage,
+    hasNextPage,
+    refetch,
+    isRefetching
+  } = useInfiniteQuery({
     queryKey: ["top-rated-movies"],
-    queryFn: () => fetchTopRatedMovies(1)
+    queryFn: ({ pageParam }) => fetchTopRatedMovies(pageParam),
+    initialPageParam: 1,
+    getNextPageParam: (lastPage, pages) => {
+      // console.log({
+      //   lastPage,
+      //   pages
+      // });
+      return lastPage.page + 1;
+    }
   });
+  // console.log(data);
 
   // const [data, setData] = useState<Movie[]>([]);
   // const [isLoading, setIsLoading] = useState(false);
@@ -88,10 +107,12 @@ export default function MoviesPage() {
     );
   }
 
+  const movies = data.pages.map((page) => page.results).flat();
+
   return (
     <View style={styels.container}>
       <FlatList
-        data={data.results}
+        data={movies}
         numColumns={2}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => {
@@ -99,6 +120,20 @@ export default function MoviesPage() {
         }}
         columnWrapperStyle={{ gap: 10 }}
         contentContainerStyle={{ gap: 10, padding: 10 }}
+        refreshing={isRefetching}
+        onEndReached={() => {
+          // console.log("end reached");
+          if (hasNextPage) {
+            fetchNextPage();
+          }
+        }}
+        onStartReached={() => {
+          console.log("start reached");
+        }}
+        onRefresh={() => {
+          console.log("refresh");
+          refetch();
+        }}
       />
     </View>
   );

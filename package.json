@@ -11,6 +11,7 @@
     "generate": "npx prisma@latest generate"
   },
   "dependencies": {
+    "@dev-plugins/react-query": "^0.0.6",
     "@expo-google-fonts/amatic-sc": "^0.2.3",
     "@expo-google-fonts/inter": "^0.2.3",
     "@expo-google-fonts/noto-serif-sc": "^0.2.3",

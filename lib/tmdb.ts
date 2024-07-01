@@ -1,4 +1,4 @@
-export interface TopRatedMovies {
+export interface MovieListResponse {
   page: number;
   results: MovieItem[];
   total_pages: number;
@@ -75,6 +75,8 @@ interface Genre {
 }
 
 const API_ACCESS_TOKEN = process.env.EXPO_PUBLIC_TMDB_API_ACCESS_TOKEN;
+const API_ACCESS_ID = process.env.EXPO_PUBLIC_TMDB_API_ACCESS_ID;
+
 const headers = {
   accept: "application/json",
   Authorization: `Bearer ${API_ACCESS_TOKEN}`
@@ -82,7 +84,7 @@ const headers = {
 
 export const fetchTopRatedMovies = async (
   page: number = 1
-): Promise<TopRatedMovies> => {
+): Promise<MovieListResponse> => {
   const url = `https://api.themoviedb.org/3/movie/top_rated?language=zh-CN&page=${page}`;
   const options = {
     method: "GET",
@@ -96,7 +98,7 @@ export const fetchTopRatedMovies = async (
   }
   const json = await res.json();
   // console.log(JSON.stringify(json, null, 2));
-  return json as TopRatedMovies;
+  return json as MovieListResponse;
 };
 
 export const fetchMovieDetail = async (id: string) => {
@@ -113,4 +115,53 @@ export const fetchMovieDetail = async (id: string) => {
   const json = await res.json();
 
   return json as MovieDetail;
+};
+
+export const getImage = (path: string, size: "w500" = "w500") => {
+  return `https://image.tmdb.org/t/p/${size}/${path}`;
+};
+
+interface AddMovieToWatchListResponse {
+  success: boolean;
+  status_code: number;
+  status_message: string;
+}
+
+export const addMovieToWatchList = async (movieId: string) => {
+  const url = `https://api.themoviedb.org/3/account/${API_ACCESS_ID}/watchlist`;
+  const options = {
+    method: "POST",
+    headers: {
+      ...headers,
+      "content-type": "application/json"
+    },
+    body: JSON.stringify({
+      media_type: "movie",
+      media_id: movieId,
+      watchlist: true
+    })
+  };
+
+  const res = await fetch(url, options);
+  if (!res.ok) {
+    throw new Error("Failed to add movie to watchlist");
+  }
+  const json = await res.json();
+  return json as AddMovieToWatchListResponse;
+};
+
+export const fetchWatchListMovies = async (page: number = 1) => {
+  const url = `https://api.themoviedb.org/3/account/${API_ACCESS_ID}/watchlist/movies?language=zh-CN&page=1&sort_by=created_at.asc`;
+  const options = {
+    method: "GET",
+    headers
+  };
+
+  const res = await fetch(url, options);
+  if (!res.ok) {
+    throw new Error("Failed to fetch watchlist movies");
+  }
+
+  const json = await res.json();
+  return json as MovieListResponse;
 };
