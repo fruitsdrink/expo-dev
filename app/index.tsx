@@ -514,6 +514,11 @@ const days: DayItem[] = [
     day: 101,
     title: "Data Fetching with TanStack Query",
     link: "https://www.youtube.com/live/bpHq_-bPkGo?si=rWLI1VWgnp_e2Isg"
+  },
+  {
+    day: 102,
+    title: "Airbnb Header Animation",
+    link: "https://youtu.be/JPx8IlfYQ-c?si=Cex8ltCpsK7k2b-M"
   }
 ];
 
