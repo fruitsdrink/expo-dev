@@ -527,8 +527,13 @@ const days: DayItem[] = [
   },
   {
     day: 104,
-    title: "Hide Header on Scroll ",
+    title: "Hide Header on Scroll",
     link: "https://youtu.be/oaGBEzMIwfo?si=62jq0S74L4AqoHcq"
+  },
+  {
+    day: 105,
+    title: "Chanel Scroll Animation",
+    link: "https://youtu.be/ucpoqa2-74s?si=6S9Eo0t_jkIobvKX"
   }
 ];
 
