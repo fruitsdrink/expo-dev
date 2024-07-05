@@ -524,6 +524,11 @@ const days: DayItem[] = [
     day: 103,
     title: "Momo Header Animation",
     link: "https://youtu.be/WIX9Tp76Tug?si=wBQ1HdVPU8tS2R8r"
+  },
+  {
+    day: 104,
+    title: "Hide Header on Scroll ",
+    link: "https://youtu.be/oaGBEzMIwfo?si=62jq0S74L4AqoHcq"
   }
 ];
 
