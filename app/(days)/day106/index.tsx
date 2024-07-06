@@ -7,6 +7,7 @@ const desc = `
 
 ## 技术点
 
+未完成，react-native-shared-element 与 expo router 有冲突，暂时无法使用。
 `;
 
 export default function DayScreen() {

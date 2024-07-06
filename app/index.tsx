@@ -539,6 +539,11 @@ const days: DayItem[] = [
     day: 106,
     title: "Snapchat Shared Transitions",
     link: "https://youtu.be/NJZfRXs7nZs?si=vlBmZEwbyT43uMQ-"
+  },
+  {
+    day: 107,
+    title: "Shared Element Transitions",
+    link: "https://youtu.be/tsleLxbvxe0?si=jsdewHtjbjKEj5I2"
   }
 ];
 
