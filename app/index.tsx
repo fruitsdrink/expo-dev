@@ -534,6 +534,11 @@ const days: DayItem[] = [
     day: 105,
     title: "Chanel Scroll Animation",
     link: "https://youtu.be/ucpoqa2-74s?si=6S9Eo0t_jkIobvKX"
+  },
+  {
+    day: 106,
+    title: "Snapchat Shared Transitions",
+    link: "https://youtu.be/NJZfRXs7nZs?si=vlBmZEwbyT43uMQ-"
   }
 ];
 
