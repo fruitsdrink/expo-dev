@@ -544,6 +544,11 @@ const days: DayItem[] = [
     day: 107,
     title: "Shared Element Transitions",
     link: "https://youtu.be/tsleLxbvxe0?si=jsdewHtjbjKEj5I2"
+  },
+  {
+    day: 108,
+    title: "Take a Picture using Camera",
+    link: "https://youtu.be/4WPjWK0MYMI?si=CG2mW2cMeD0Hnc6I"
   }
 ];
 
