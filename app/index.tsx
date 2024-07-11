@@ -549,6 +549,11 @@ const days: DayItem[] = [
     day: 108,
     title: "Take a Picture using Camera",
     link: "https://youtu.be/4WPjWK0MYMI?si=CG2mW2cMeD0Hnc6I"
+  },
+  {
+    day: 109,
+    title: "Animated Split Button",
+    link: "https://youtu.be/GxkzFYI6eqI?si=kN4moHuGVOmXMuck"
   }
 ];
 
