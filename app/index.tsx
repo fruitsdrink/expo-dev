@@ -554,6 +554,11 @@ const days: DayItem[] = [
     day: 109,
     title: "Animated Split Button",
     link: "https://youtu.be/GxkzFYI6eqI?si=kN4moHuGVOmXMuck"
+  },
+  {
+    day: 110,
+    title: "Instagram Clone Login",
+    link: "https://youtu.be/JTainThP4RQ?si=uRGg-g_oClClV2In"
   }
 ];
 

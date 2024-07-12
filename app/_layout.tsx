@@ -24,6 +24,8 @@ import { Drawer } from "expo-router/drawer";
 
 import { vexo } from "vexo-analytics";
 
+import "../global.css";
+
 // You may want to wrap this with `if (!__DEV__) { ... }` to only run Vexo in production.
 if (!__DEV__) {
   vexo(process.env.EXPO_PUBLIC_VEXO_API_KEY || "");
