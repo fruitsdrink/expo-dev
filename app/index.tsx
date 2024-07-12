@@ -559,6 +559,11 @@ const days: DayItem[] = [
     day: 110,
     title: "Instagram Clone Login",
     link: "https://youtu.be/JTainThP4RQ?si=uRGg-g_oClClV2In"
+  },
+  {
+    day: 111,
+    title: "Drizzle ORM",
+    link: "https://youtu.be/1inzzYvbgO8?si=Ns0qzf7z-JysH_c3"
   }
 ];
 
