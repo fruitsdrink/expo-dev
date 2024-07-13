@@ -564,6 +564,11 @@ const days: DayItem[] = [
     day: 111,
     title: "Drizzle ORM",
     link: "https://youtu.be/1inzzYvbgO8?si=Ns0qzf7z-JysH_c3"
+  },
+  {
+    day: 112,
+    title: "Login with JWT Auth Context",
+    link: "https://youtu.be/9vydY9SDtAo?si=mH8enkE6ni-lc34w"
   }
 ];
 
