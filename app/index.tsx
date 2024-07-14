@@ -569,6 +569,11 @@ const days: DayItem[] = [
     day: 112,
     title: "Login with JWT Auth Context",
     link: "https://youtu.be/9vydY9SDtAo?si=mH8enkE6ni-lc34w"
+  },
+  {
+    day: 113,
+    title: "Best React Native Menus",
+    link: "https://youtu.be/U7rzrV4_p14?si=GvhUentfT11d_-a9"
   }
 ];
 
