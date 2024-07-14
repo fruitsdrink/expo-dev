@@ -574,6 +574,11 @@ const days: DayItem[] = [
     day: 113,
     title: "Best React Native Menus",
     link: "https://youtu.be/U7rzrV4_p14?si=GvhUentfT11d_-a9"
+  },
+  {
+    day: 114,
+    title: "Fitness App Onboarding",
+    link: "https://youtu.be/EMYRP4PVu1A?si=qOpY1whQ4Xemq_4R"
   }
 ];
 
