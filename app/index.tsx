@@ -579,6 +579,11 @@ const days: DayItem[] = [
     day: 114,
     title: "Fitness App Onboarding",
     link: "https://youtu.be/EMYRP4PVu1A?si=qOpY1whQ4Xemq_4R"
+  },
+  {
+    day: 115,
+    title: "Animated Login Form",
+    link: "https://youtu.be/dj0zN72phDo?si=xLNEb0dBWIfZf7jh"
   }
 ];
 
