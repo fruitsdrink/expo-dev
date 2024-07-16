@@ -589,6 +589,11 @@ const days: DayItem[] = [
     day: 116,
     title: "Read PDF",
     link: "https://youtu.be/rlKAQZhenlQ?si=G0js9h4B5ONN8-o6"
+  },
+  {
+    day: 117,
+    title: "download PDF",
+    link: "https://youtu.be/LpaSLwHteIk?si=9R_jx6u93i9-M9OQ"
   }
 ];
 
