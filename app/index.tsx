@@ -584,6 +584,11 @@ const days: DayItem[] = [
     day: 115,
     title: "Animated Login Form",
     link: "https://youtu.be/dj0zN72phDo?si=xLNEb0dBWIfZf7jh"
+  },
+  {
+    day: 116,
+    title: "Read PDF",
+    link: "https://youtu.be/rlKAQZhenlQ?si=G0js9h4B5ONN8-o6"
   }
 ];
 
