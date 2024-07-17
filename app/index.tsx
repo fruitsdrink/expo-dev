@@ -594,6 +594,11 @@ const days: DayItem[] = [
     day: 117,
     title: "download PDF",
     link: "https://youtu.be/LpaSLwHteIk?si=9R_jx6u93i9-M9OQ"
+  },
+  {
+    day: 118,
+    title: "Health Step Counter App",
+    link: "https://www.youtube.com/live/VVoXcr18mdo?si=pB1FQG2FswpuFvip"
   }
 ];
 
