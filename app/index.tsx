@@ -599,6 +599,11 @@ const days: DayItem[] = [
     day: 118,
     title: "Health Step Counter App",
     link: "https://www.youtube.com/live/VVoXcr18mdo?si=pB1FQG2FswpuFvip"
+  },
+  {
+    day: 119,
+    title: "Instagram Clone with React Native and Cloudinary",
+    link: "https://www.youtube.com/live/CRIMOPhiWG8?si=BnZV3I_isSIV8KB7"
   }
 ];
 
