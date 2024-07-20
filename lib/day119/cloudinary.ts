@@ -23,7 +23,7 @@ export const uploadImage = async (uploadOptions: {
   const { image, preset, tag } = uploadOptions;
   const options: UploadApiOptions = {
     upload_preset: preset,
-    allowed_formats: Array.from(["png", "jpg", "jpeg", "gif"]),
+    // allowed_formats: Array.from(["png", "jpg", "jpeg", "gif"]),
     tag: tag ?? "sample",
     unsigned: true
   };

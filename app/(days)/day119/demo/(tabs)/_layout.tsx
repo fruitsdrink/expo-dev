@@ -23,6 +23,7 @@ export default function RootLayout() {
           options={{
             headerTitle: "For you",
             title: "Home",
+            unmountOnBlur: true,
             tabBarIcon: ({ size, color }) => (
               <FontAwesome name="home" size={size} color={color} />
             )

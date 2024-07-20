@@ -3,11 +3,16 @@ import { View, Text, Image, TextInput, Pressable, Alert } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import { Button } from "@/components/day119/button";
 import { uploadImage } from "@/lib/day119/cloudinary";
+import { supabase } from "@/lib/day119/supabase";
+import { useAuth } from "@/providers/day119/AuthProvider";
+import { router } from "expo-router";
 
 export default function New() {
   const [caption, setCaption] = useState("");
   const [image, setImage] = useState<string | null>(null);
   const [isUploading, setIsUploading] = useState(false);
+
+  const { session } = useAuth();
 
   useEffect(() => {
     if (!image) {
@@ -20,8 +25,8 @@ export default function New() {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
-      // aspect: [4, 3],
-      quality: 1
+      aspect: [4, 3],
+      quality: 0.5
     });
 
     console.log(result);
@@ -35,24 +40,47 @@ export default function New() {
     if (!image || isUploading) {
       return;
     }
-    setIsUploading(true);
     try {
       const res = await uploadImage({
         image,
         preset: "day119"
       });
 
-      console.log(res.public_id, res.secure_url);
-      Alert.alert("Success", "Image uploaded successfully");
+      console.log("upload res: ", res);
+      return res;
     } catch (error) {
-      Alert.alert("Error", "Failed to upload image");
-    } finally {
-      setIsUploading(false);
+      console.error(error);
+      throw new Error("Failed to upload image");
     }
   };
 
   const createPost = async () => {
-    await upload();
+    try {
+      if (!caption) {
+        Alert.alert("Please enter caption");
+        return;
+      }
+      setIsUploading(true);
+      const { public_id } = await upload();
+
+      if (public_id) {
+        const { data, error } = await supabase
+          .from("posts")
+          .insert([{ caption, image: public_id, user_id: session?.user.id }])
+          .select();
+
+        if (error) {
+          throw new Error(error.message);
+        }
+
+        router.push("/day119/demo/(tabs)");
+      }
+    } catch (error) {
+      console.error(error);
+      Alert.alert("Failed to create post");
+    } finally {
+      setIsUploading(false);
+    }
   };
 
   return (
