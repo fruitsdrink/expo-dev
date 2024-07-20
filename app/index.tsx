@@ -602,7 +602,7 @@ const days: DayItem[] = [
   },
   {
     day: 119,
-    title: "Instagram Clone with React Native and Cloudinary",
+    title: "Instagram Clone with Cloudinary",
     link: "https://www.youtube.com/live/CRIMOPhiWG8?si=BnZV3I_isSIV8KB7"
   }
 ];

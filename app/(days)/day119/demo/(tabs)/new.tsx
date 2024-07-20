@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import { View, Text, Image, TextInput, Pressable } from "react-native";
+import { View, Text, Image, TextInput, Pressable, Alert } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import { Button } from "@/components/day119/button";
+import { uploadImage } from "@/lib/day119/cloudinary";
 
 export default function New() {
   const [caption, setCaption] = useState("");
   const [image, setImage] = useState<string | null>(null);
+  const [isUploading, setIsUploading] = useState(false);
 
   useEffect(() => {
     if (!image) {
@@ -18,7 +20,7 @@ export default function New() {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
-      aspect: [4, 3],
+      // aspect: [4, 3],
       quality: 1
     });
 
@@ -27,6 +29,30 @@ export default function New() {
     if (!result.canceled) {
       setImage(result.assets[0].uri);
     }
+  };
+
+  const upload = async () => {
+    if (!image || isUploading) {
+      return;
+    }
+    setIsUploading(true);
+    try {
+      const res = await uploadImage({
+        image,
+        preset: "day119"
+      });
+
+      console.log(res.public_id, res.secure_url);
+      Alert.alert("Success", "Image uploaded successfully");
+    } catch (error) {
+      Alert.alert("Error", "Failed to upload image");
+    } finally {
+      setIsUploading(false);
+    }
+  };
+
+  const createPost = async () => {
+    await upload();
   };
 
   return (
@@ -65,7 +91,7 @@ export default function New() {
       </View>
 
       <Text
-        onPress={() => pickImage}
+        onPress={pickImage}
         style={{
           marginTop: 20,
           fontWeight: "semibold",
@@ -87,7 +113,12 @@ export default function New() {
         onChangeText={setCaption}
       />
 
-      <Button title="Share" onPress={() => {}} isMarginTop={true} />
+      <Button
+        title="Share"
+        onPress={createPost}
+        isMarginTop={true}
+        isLoading={isUploading}
+      />
     </View>
   );
 }

@@ -1,15 +1,17 @@
 import React from "react";
-import { Pressable, View, Text } from "react-native";
+import { Pressable, View, Text, ActivityIndicator } from "react-native";
 
 type ButtonProps = {
   title: string;
   onPress?: () => void;
   isMarginTop?: boolean;
+  isLoading?: boolean;
 };
 export const Button: React.FC<ButtonProps> = ({
   title,
   onPress,
-  isMarginTop = false
+  isMarginTop = false,
+  isLoading = false
 }) => {
   return (
     <View
@@ -28,14 +30,18 @@ export const Button: React.FC<ButtonProps> = ({
         }}
         onPress={onPress}
       >
-        <Text
-          style={{
-            fontWeight: "semibold",
-            color: "white"
-          }}
-        >
-          {title}
-        </Text>
+        {!isLoading ? (
+          <Text
+            style={{
+              fontWeight: "semibold",
+              color: "white"
+            }}
+          >
+            {title}
+          </Text>
+        ) : (
+          <ActivityIndicator color="white" size={"small"} />
+        )}
       </Pressable>
     </View>
   );
