@@ -13,7 +13,6 @@ const desc = `
 \`\`\`
 yarn add cloudinary-react-native
 npx expo install @supabase/supabase-js @react-native-async-storage/async-storage
-npx expo install @rneui/themed
 \`\`\`
 
 ## 第三方服务

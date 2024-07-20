@@ -28,7 +28,9 @@ export const Button: React.FC<ButtonProps> = ({
           backgroundColor: "#3b82f6",
           borderRadius: 8
         }}
-        onPress={onPress}
+        onPress={() => {
+          if (onPress && !isLoading) onPress();
+        }}
       >
         {!isLoading ? (
           <Text
