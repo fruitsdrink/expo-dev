@@ -14,7 +14,7 @@ import { Button } from "@/components/day119/button";
 import { supabase } from "@/lib/day119/supabase";
 import { useAuth } from "@/providers/day119/AuthProvider";
 import { CustomTextInput } from "@/components/day119/custom-textinput";
-import { uploadImage } from "@/lib/day119/cloudinary";
+import { uploadMedia } from "@/lib/day119/cloudinary";
 import { thumbnail } from "@cloudinary/url-gen/actions/resize";
 import { focusOn } from "@cloudinary/url-gen/qualifiers/gravity";
 import { FocusOn } from "@cloudinary/url-gen/qualifiers/focusOn";
@@ -87,8 +87,8 @@ export default function Profile() {
       };
 
       if (image) {
-        const { public_id } = await uploadImage({
-          image,
+        const { public_id } = await uploadMedia({
+          media: image,
           preset: "day119"
         });
 
@@ -184,7 +184,17 @@ export default function Profile() {
           }}
         />
       </View>
-      {loading && <ActivityIndicator style={StyleSheet.absoluteFill} />}
+      {loading && (
+        <ActivityIndicator
+          color={"#fff"}
+          style={[
+            StyleSheet.absoluteFill,
+            {
+              backgroundColor: "rgba(0,0,0,0.3)"
+            }
+          ]}
+        />
+      )}
     </View>
   );
 }

@@ -1,25 +1,36 @@
 import { useEffect, useState } from "react";
-import { View, Text, Image, TextInput, Pressable, Alert } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TextInput,
+  Pressable,
+  Alert,
+  Dimensions,
+  ActivityIndicator,
+  StyleSheet
+} from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import { Button } from "@/components/day119/button";
-import { uploadImage } from "@/lib/day119/cloudinary";
+import { uploadMedia } from "@/lib/day119/cloudinary";
 import { supabase } from "@/lib/day119/supabase";
 import { useAuth } from "@/providers/day119/AuthProvider";
 import { router } from "expo-router";
+import { ResizeMode, Video } from "expo-av";
 
 export default function New() {
   const [caption, setCaption] = useState("");
-  const [image, setImage] = useState<string | null>(null);
-  const [video, setVideo] = useState<string | null>(null);
+  const [media, setMedia] = useState<string | null>(null);
+  const [mediaType, setMediaType] = useState<"image" | "video" | null>(null);
   const [isUploading, setIsUploading] = useState(false);
 
   const { session } = useAuth();
 
   useEffect(() => {
-    if (!image) {
+    if (!media) {
       pickMedia();
     }
-  }, [image]);
+  }, [media]);
 
   const pickMedia = async () => {
     // No permissions request is necessary for launching the image library
@@ -31,22 +42,27 @@ export default function New() {
     });
 
     if (!result.canceled) {
+      setMedia(null);
+      setMediaType(null);
+
       if (result.assets[0].type === "image") {
-        setImage(result.assets[0].uri);
+        setMedia(result.assets[0].uri);
+        setMediaType("image");
       }
       if (result.assets[0].type === "video") {
-        setVideo(result.assets[0].uri);
+        setMedia(result.assets[0].uri);
+        setMediaType("video");
       }
     }
   };
 
   const upload = async () => {
-    if (!image || isUploading) {
+    if (!media || isUploading) {
       return;
     }
     try {
-      const res = await uploadImage({
-        image,
+      const res = await uploadMedia({
+        media,
         preset: "day119"
       });
 
@@ -60,17 +76,20 @@ export default function New() {
 
   const createPost = async () => {
     try {
-      if (!caption) {
-        Alert.alert("Please enter caption");
-        return;
-      }
       setIsUploading(true);
       const { public_id } = await upload();
 
       if (public_id) {
         const { data, error } = await supabase
           .from("posts")
-          .insert([{ caption, image: public_id, user_id: session?.user.id }])
+          .insert([
+            {
+              caption,
+              image: public_id,
+              user_id: session?.user.id,
+              media_type: mediaType
+            }
+          ])
           .select();
 
         if (error) {
@@ -108,18 +127,36 @@ export default function New() {
           borderRadius: 8
         }}
       >
-        <Image
-          source={{
-            uri: image
-          }}
-          style={{
-            width: 200,
-            height: (200 * 4) / 3,
-            alignSelf: "center",
-            backgroundColor: "#f3f4f6",
-            borderRadius: 8
-          }}
-        />
+        {media && mediaType === "image" ? (
+          <Image
+            source={{
+              uri: media
+            }}
+            style={{
+              width: "100%",
+              aspectRatio: 4 / 3,
+              alignSelf: "center",
+              backgroundColor: "#f3f4f6",
+              borderRadius: 8
+            }}
+          />
+        ) : media && mediaType === "video" ? (
+          <Video
+            style={{
+              width: "100%",
+              aspectRatio: 4 / 3
+            }}
+            source={{
+              uri: media
+            }}
+            useNativeControls
+            resizeMode={ResizeMode.CONTAIN}
+            isLooping
+            shouldPlay
+          />
+        ) : (
+          <View className="w-full aspect-[4/3] rounded bg-slate-300" />
+        )}
       </View>
 
       <Text
@@ -145,12 +182,18 @@ export default function New() {
         onChangeText={setCaption}
       />
 
-      <Button
-        title="Share"
-        onPress={createPost}
-        isMarginTop={true}
-        isLoading={isUploading}
-      />
+      <Button title="Share" onPress={createPost} isMarginTop={true} />
+      {isUploading && (
+        <ActivityIndicator
+          color={"#fff"}
+          style={[
+            StyleSheet.absoluteFill,
+            {
+              backgroundColor: "rgba(0,0,0,0.3)"
+            }
+          ]}
+        />
+      )}
     </View>
   );
 }

@@ -15,22 +15,23 @@ export const cld = new Cloudinary({
   }
 });
 
-export const uploadImage = async (uploadOptions: {
-  image: string;
+export const uploadMedia = async (uploadOptions: {
+  media: string;
   preset: string;
   tag?: string;
 }) => {
-  const { image, preset, tag } = uploadOptions;
+  const { media, preset, tag } = uploadOptions;
   const options: UploadApiOptions = {
     upload_preset: preset,
     // allowed_formats: Array.from(["png", "jpg", "jpeg", "gif"]),
     tag: tag ?? "sample",
-    unsigned: true
+    unsigned: true,
+    resource_type: "auto"
   };
 
   return new Promise<UploadApiResponse>(async (resolve, reject) => {
     await upload(cld, {
-      file: image,
+      file: media,
       options: options,
       callback: (error: any, response: any) => {
         if (error || !response) {

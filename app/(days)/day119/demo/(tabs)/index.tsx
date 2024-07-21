@@ -1,26 +1,34 @@
 import { View, FlatList, Alert } from "react-native";
 import React, { useEffect, useState } from "react";
-import { Post, PostListItem } from "@/components/day119/post-list-item";
-import { supabase } from "@/lib/day119/supabase";
+import { PostListItem } from "@/components/day119/post-list-item";
+import { Post, supabase } from "@/lib/day119/supabase";
 
 export default function Home() {
   const [posts, setPosts] = useState<Post[]>([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetchPosts();
   }, []);
 
   const fetchPosts = async () => {
-    console.log("🔥 读取数据");
-    let { data: posts, error } = await supabase
-      .from("posts")
-      .select("*, user:profiles(*)");
-    if (error) {
-      console.error("error", error);
-      Alert.alert("Error fetching posts");
-    } else {
-      console.log(posts);
-      setPosts(posts as Post[]);
+    try {
+      setLoading(true);
+      let { data: posts, error } = await supabase
+        .from("posts")
+        .select("*, user:profiles(*)")
+        .order("created_at", { ascending: false });
+      if (error) {
+        console.error("error", error);
+        Alert.alert("Error fetching posts");
+      } else {
+        console.log(posts);
+        setPosts(posts as Post[]);
+      }
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -34,6 +42,8 @@ export default function Home() {
         }}
         showsVerticalScrollIndicator={false}
         renderItem={({ item }) => <PostListItem post={item} />}
+        onRefresh={fetchPosts}
+        refreshing={loading}
       />
     </View>
   );
