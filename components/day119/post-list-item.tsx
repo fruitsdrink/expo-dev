@@ -15,9 +15,10 @@ import { thumbnail } from "@cloudinary/url-gen/actions/resize";
 import { focusOn } from "@cloudinary/url-gen/qualifiers/gravity";
 import { FocusOn } from "@cloudinary/url-gen/qualifiers/focusOn";
 import { cld } from "@/lib/day119/cloudinary";
-import { Post, supabase } from "@/lib/day119/supabase";
+import { Like, Post, supabase } from "@/lib/day119/supabase";
 import { PostContent } from "./post-content";
 import { useAuth } from "@/providers/day119/AuthProvider";
+import { sendLikeNotification } from "@/lib/day119/notifications";
 
 type PostListItemProps = {
   post: Post;
@@ -60,13 +61,19 @@ export const PostListItem: React.FC<PostListItemProps> = ({ post }) => {
       return;
     }
 
-    const { error } = await supabase
+    const { data, error } = await supabase
       .from("likes")
-      .insert({ user_id: user.id, post_id: post.id });
+      .insert({ user_id: user.id, post_id: post.id })
+      .select("*")
+      .single();
+
     if (error) {
       console.error("doLike error: ", error);
       Alert.alert("Error liking post");
+      return null;
     }
+
+    return data as Like;
   };
 
   const deleteLike = async () => {
@@ -91,8 +98,9 @@ export const PostListItem: React.FC<PostListItemProps> = ({ post }) => {
     try {
       setIsFetching(true);
       if (isLike) {
-        await saveLike();
+        const like = await saveLike();
         setLikeCount((prev) => prev + 1);
+        sendLikeNotification(like);
       } else {
         await deleteLike();
         setLikeCount((prev) => {

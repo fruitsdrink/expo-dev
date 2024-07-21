@@ -17,11 +17,18 @@ const desc = `
 yarn add cloudinary-react-native
 npx expo install @supabase/supabase-js @react-native-async-storage/async-storage
 npx expo install expo-av
+npx expo install expo-notifications expo-device expo-constants
+npm i -g eas-cli
+\`\`\`
+
+\`\`\`bash
+eas init
 \`\`\`
 
 ## 第三方服务
 - [cloudinary](https://cloudinary.com)
 - [supabase](https://supabase.com)
+- [通知厕所工具](https://expo.dev/notifications)
 
 
 ## 相关文档
