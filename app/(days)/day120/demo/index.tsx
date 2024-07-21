@@ -1,23 +1,32 @@
-import { Dimensions, StyleSheet, Text, View } from "react-native";
+import {
+  Dimensions,
+  StyleProp,
+  StyleSheet,
+  Text,
+  View,
+  ViewStyle
+} from "react-native";
 
 import { StatusBar } from "expo-status-bar";
 import { Stack } from "expo-router";
 import Animated, {
   SharedValue,
   interpolate,
+  runOnJS,
   useAnimatedStyle,
   useSharedValue,
   withTiming
 } from "react-native-reanimated";
-import { rotate } from "react-native-redash";
+import React from "react";
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
 
 type CardProps = {
   index: number;
   progress: SharedValue<number>;
+  style?: StyleProp<ViewStyle>;
 };
-const Card: React.FC<CardProps> = ({ index, progress }) => {
+const Card: React.FC<CardProps> = ({ index, progress, style }) => {
   const rStyle = useAnimatedStyle(() => {
     const translateX = interpolate(progress.value, [0, 1], [0, index * 25]);
 
@@ -49,6 +58,7 @@ const Card: React.FC<CardProps> = ({ index, progress }) => {
       key={index}
       style={[
         styles.card,
+        style,
         {
           zIndex: -index
         },

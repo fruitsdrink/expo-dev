@@ -5,6 +5,8 @@ const desc = `
 
 [youtube](https://youtu.be/8_hvNoZJsc8?si=AZFTowqBwpBN5v6J)
 
+## package
+- react-native-anchor-point
 ## 技术点
 
 `;
