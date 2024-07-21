@@ -2,10 +2,13 @@ import { View, FlatList, Alert } from "react-native";
 import React, { useEffect, useState } from "react";
 import { PostListItem } from "@/components/day119/post-list-item";
 import { Post, supabase } from "@/lib/day119/supabase";
+import { useAuth } from "@/providers/day119/AuthProvider";
 
 export default function Home() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(false);
+
+  const { user } = useAuth();
 
   useEffect(() => {
     fetchPosts();
@@ -16,7 +19,8 @@ export default function Home() {
       setLoading(true);
       let { data: posts, error } = await supabase
         .from("posts")
-        .select("*, user:profiles(*), likes:likes(*)")
+        .select("*, user:profiles(*), mylikes:likes(*), likes(count)")
+        .eq("mylikes.user_id", user?.id)
         .order("created_at", { ascending: false });
       if (error) {
         console.error("error", error);

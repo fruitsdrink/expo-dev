@@ -12,7 +12,10 @@ export interface Post {
   caption: string;
   media_type: string;
   user: User;
-  likes: Like[];
+  mylikes: Like[];
+  likes: {
+    count: number;
+  }[];
 }
 
 interface User {
@@ -21,7 +24,7 @@ interface User {
   image_url: string;
   username: string;
 }
-interface Like {
+export interface Like {
   id: string;
   post_id: string;
   user_id: string;

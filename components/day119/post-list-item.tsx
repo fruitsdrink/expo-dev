@@ -23,8 +23,9 @@ type PostListItemProps = {
   post: Post;
 };
 export const PostListItem: React.FC<PostListItemProps> = ({ post }) => {
-  const [isLiked, setIsLiked] = React.useState(post.likes.length > 0);
+  const [isLiked, setIsLiked] = React.useState(post.mylikes.length > 0);
   const [isFetching, setIsFetching] = React.useState(false);
+  const [likeCount, setLikeCount] = React.useState(post.likes[0]?.count || 0);
   const { user } = useAuth();
 
   const avatar = cld.image(post.user.avatar_url || "avatar/user_drnxsb");
@@ -86,13 +87,20 @@ export const PostListItem: React.FC<PostListItemProps> = ({ post }) => {
     }
   };
 
-  const doLike = (isLike: boolean) => {
+  const doLike = async (isLike: boolean) => {
     try {
       setIsFetching(true);
       if (isLike) {
-        saveLike();
+        await saveLike();
+        setLikeCount((prev) => prev + 1);
       } else {
-        deleteLike();
+        await deleteLike();
+        setLikeCount((prev) => {
+          if (prev > 0) {
+            return prev - 1;
+          }
+          return prev;
+        });
       }
       setIsLiked((prev) => !prev);
     } catch (error) {
@@ -156,6 +164,15 @@ export const PostListItem: React.FC<PostListItemProps> = ({ post }) => {
             marginLeft: "auto"
           }}
         />
+      </View>
+      <View className="gap-1 px-3">
+        <Text className="font-semibold">{likeCount} likes</Text>
+        <Text>
+          <Text className="font-semibold">
+            {post.user.username || "New User"}{" "}
+          </Text>
+          {post.caption}
+        </Text>
       </View>
       {isFetching && (
         <ActivityIndicator
