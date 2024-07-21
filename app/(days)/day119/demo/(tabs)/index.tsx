@@ -2,7 +2,6 @@ import { View, FlatList, Alert } from "react-native";
 import React, { useEffect, useState } from "react";
 import { Post, PostListItem } from "@/components/day119/post-list-item";
 import { supabase } from "@/lib/day119/supabase";
-import { EventEmitter } from "expo-location";
 
 export default function Home() {
   const [posts, setPosts] = useState<Post[]>([]);

@@ -7,6 +7,9 @@ const desc = `
 
 ## 技术点
 - Cloudinary
+- supabase
+- 推送通知
+- 视频
 
 ## package
 

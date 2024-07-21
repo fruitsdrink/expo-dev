@@ -41,7 +41,7 @@ export const PostListItem: React.FC<PostListItemProps> = ({ post }) => {
   const image = cld.image(post.image);
   image.resize(thumbnail().width(width).height(width)); // Crop the image, focusing on the face.
 
-  const avatar = cld.image(post.user.avatar_url);
+  const avatar = cld.image(post.user.avatar_url || "avatar/user_drnxsb");
   const avatarWidth = 48;
   avatar
     .resize(
@@ -50,7 +50,7 @@ export const PostListItem: React.FC<PostListItemProps> = ({ post }) => {
         .height(avatarWidth)
         .gravity(focusOn(FocusOn.face()))
     )
-    .roundCorners(byRadius(avatarWidth / 2));
+    .format("png");
 
   return (
     <View
@@ -79,7 +79,7 @@ export const PostListItem: React.FC<PostListItemProps> = ({ post }) => {
             fontWeight: "semibold"
           }}
         >
-          {post.user.username}
+          {post.user.username || "New User"}
         </Text>
       </View>
       <View
