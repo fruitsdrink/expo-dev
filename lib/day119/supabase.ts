@@ -12,6 +12,7 @@ export interface Post {
   caption: string;
   media_type: string;
   user: User;
+  likes: Like[];
 }
 
 interface User {
@@ -19,6 +20,12 @@ interface User {
   avatar_url: string;
   image_url: string;
   username: string;
+}
+interface Like {
+  id: string;
+  post_id: string;
+  user_id: string;
+  created_at: string;
 }
 
 export const supabase = createClient(supabaseUrl, supabaseKey, {

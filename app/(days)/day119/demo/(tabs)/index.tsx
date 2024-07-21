@@ -16,13 +16,13 @@ export default function Home() {
       setLoading(true);
       let { data: posts, error } = await supabase
         .from("posts")
-        .select("*, user:profiles(*)")
+        .select("*, user:profiles(*), likes:likes(*)")
         .order("created_at", { ascending: false });
       if (error) {
         console.error("error", error);
         Alert.alert("Error fetching posts");
       } else {
-        console.log(posts);
+        console.log(JSON.stringify(posts, null, 2));
         setPosts(posts as Post[]);
       }
     } catch (error) {
