@@ -10,17 +10,18 @@ import { router } from "expo-router";
 export default function New() {
   const [caption, setCaption] = useState("");
   const [image, setImage] = useState<string | null>(null);
+  const [video, setVideo] = useState<string | null>(null);
   const [isUploading, setIsUploading] = useState(false);
 
   const { session } = useAuth();
 
   useEffect(() => {
     if (!image) {
-      pickImage();
+      pickMedia();
     }
   }, [image]);
 
-  const pickImage = async () => {
+  const pickMedia = async () => {
     // No permissions request is necessary for launching the image library
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
@@ -29,10 +30,13 @@ export default function New() {
       quality: 0.5
     });
 
-    console.log(result);
-
     if (!result.canceled) {
-      setImage(result.assets[0].uri);
+      if (result.assets[0].type === "image") {
+        setImage(result.assets[0].uri);
+      }
+      if (result.assets[0].type === "video") {
+        setVideo(result.assets[0].uri);
+      }
     }
   };
 
@@ -119,7 +123,7 @@ export default function New() {
       </View>
 
       <Text
-        onPress={pickImage}
+        onPress={pickMedia}
         style={{
           marginTop: 20,
           fontWeight: "semibold",
