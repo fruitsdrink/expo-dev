@@ -604,6 +604,11 @@ const days: DayItem[] = [
     day: 119,
     title: "Instagram Clone with Cloudinary",
     link: "https://www.youtube.com/live/CRIMOPhiWG8?si=BnZV3I_isSIV8KB7"
+  },
+  {
+    day: 120,
+    title: "Animated Stacked Cards",
+    link: "https://youtu.be/8_hvNoZJsc8?si=AZFTowqBwpBN5v6J"
   }
 ];
 
