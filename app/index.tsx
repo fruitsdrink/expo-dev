@@ -609,6 +609,11 @@ const days: DayItem[] = [
     day: 120,
     title: "Animated Stacked Cards",
     link: "https://youtu.be/8_hvNoZJsc8?si=AZFTowqBwpBN5v6J"
+  },
+  {
+    day: 121,
+    title: "Simple Login Screen",
+    link: "https://youtu.be/lA_73_-n-V4?si=5xt8CNaubYG7897Q"
   }
 ];
 
