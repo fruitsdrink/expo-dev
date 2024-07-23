@@ -12,6 +12,7 @@ import {
 import { faker } from "@faker-js/faker";
 import niceColors from "nice-color-palettes";
 import { NavigationProp } from "@react-navigation/native";
+import { SharedElement } from "react-navigation-shared-element";
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
 
@@ -205,22 +206,35 @@ export default function DemoScreen({
                 }}
               >
                 <View style={{ flex: 1, padding: SPACING }}>
-                  <View
-                    style={[
-                      StyleSheet.absoluteFillObject,
-                      { backgroundColor: item.color, borderRadius: 16 }
-                    ]}
-                  />
-                  <Text style={styles.name}>{item.name}</Text>
+                  <SharedElement
+                    id={`item.${item.key}.bg`}
+                    style={[StyleSheet.absoluteFillObject]}
+                  >
+                    <View
+                      style={[
+                        StyleSheet.absoluteFillObject,
+                        { backgroundColor: item.color, borderRadius: 16 }
+                      ]}
+                    />
+                  </SharedElement>
+                  <SharedElement id={`item.${item.key}.name`}>
+                    <Text style={styles.name}>{item.name}</Text>
+                  </SharedElement>
                   <Text style={styles.jobTitle}>{item.jobTitle}</Text>
-
-                  <Image source={{ uri: item.image }} style={styles.image} />
+                  <SharedElement
+                    id={`item.${item.key}.image`}
+                    style={styles.image}
+                  >
+                    <Image source={{ uri: item.image }} style={styles.image} />
+                  </SharedElement>
                 </View>
               </TouchableOpacity>
             );
           }}
         />
-        <View style={styles.bg} />
+        <SharedElement id="general.bg">
+          <View style={styles.bg} />
+        </SharedElement>
       </SafeAreaView>
     </>
   );
@@ -229,11 +243,13 @@ export default function DemoScreen({
 const styles = StyleSheet.create({
   name: {
     fontSize: 18,
-    fontWeight: "700"
+    fontWeight: "700",
+    position: "absolute"
   },
   jobTitle: {
     fontSize: 11,
-    opacity: 0.7
+    opacity: 0.7,
+    marginTop: 18 * 1.2
   },
   image: {
     width: ITEM_HEIGHT * 0.8,
@@ -247,7 +263,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: SCREEN_WIDTH,
     height: SCREEN_HEIGHT,
-    backgroundColor: "red",
+    backgroundColor: "white",
     borderRadius: 32,
     transform: [
       {

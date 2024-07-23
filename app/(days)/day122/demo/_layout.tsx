@@ -1,11 +1,11 @@
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./index";
 import DetailScreen from "./detail";
 import { StatusBar } from "react-native";
 import { Stack as ExpoStack } from "expo-router";
+import { createSharedElementStackNavigator } from "react-navigation-shared-element";
 
-const Stack = createNativeStackNavigator<{
+const Stack = createSharedElementStackNavigator<{
   Home: undefined;
   Detail: { item: any } | undefined;
 }>();

@@ -13,6 +13,7 @@ import { AntDesign } from "@expo/vector-icons";
 import * as Animatable from "react-native-animatable";
 import { NavigationProp } from "@react-navigation/native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { SharedElement } from "react-navigation-shared-element";
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
 const SPACING = 10;
@@ -31,7 +32,7 @@ interface Props
   > {
   // other props ...
 }
-export default function Detail({ route, navigation }: Props) {
+const Detail = ({ route, navigation }: Props) => {
   const { item } = route.params;
   return (
     <>
@@ -56,92 +57,101 @@ export default function Detail({ route, navigation }: Props) {
             navigation.goBack();
           }}
         />
-        <View
-          style={[
-            StyleSheet.absoluteFillObject,
-            {
-              backgroundColor: item.color,
-              borderRadius: 0,
-              height: TOP_HEADER_HEIGHT + 32
-            }
-          ]}
-        />
-        <Text style={styles.name}>{item.name}</Text>
-        <Image source={{ uri: item.image }} style={styles.image} />
-        <View style={styles.bg}>
-          <ScrollView>
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "space-evenly",
-                marginVertical: SPACING,
-                marginBottom: SPACING + 32
-              }}
-            >
-              {detailsIcons.map((detail, index) => {
-                return (
-                  <Animatable.View
-                    key={`${detail.icon}-${index}`}
-                    animation={"bounceIn"}
-                    delay={DURATION + index * 100}
-                    style={{
-                      backgroundColor: detail.color,
-                      width: 64,
-                      aspectRatio: 1,
-                      borderRadius: 32,
-                      justifyContent: "center",
-                      alignItems: "center"
-                    }}
-                  >
-                    <AntDesign name={detail.icon} size={22} color={"white"} />
-                  </Animatable.View>
-                );
-              })}
-            </View>
-            <View>
-              {item.categories.map((category, index) => {
-                return (
-                  <Animatable.View
-                    key={category.key}
-                    animation={"fadeInUp"}
-                    delay={DURATION * 2 + index * 200}
-                    style={{ marginVertical: SPACING }}
-                  >
-                    <Text style={styles.title}>{category.title}</Text>
-                    {category.subcats.map((subcat, index) => {
-                      return (
-                        <View
-                          key={`${subcat}-${index}`}
-                          style={{
-                            flexDirection: "row",
-                            alignItems: "center",
-                            marginBottom: SPACING / 2,
-                            marginLeft: SPACING
-                          }}
-                        >
+        <SharedElement id={`item.${item.key}.bg`}>
+          <View
+            style={[
+              StyleSheet.absoluteFillObject,
+              {
+                backgroundColor: item.color,
+                borderRadius: 0,
+                height: TOP_HEADER_HEIGHT + 32
+              }
+            ]}
+          />
+        </SharedElement>
+        <SharedElement id={`item.${item.key}.name`}>
+          <Text style={styles.name}>{item.name}</Text>
+        </SharedElement>
+        <SharedElement id={`item.${item.key}.image`}>
+          <Image source={{ uri: item.image }} style={styles.image} />
+        </SharedElement>
+
+        <SharedElement id="general.bg">
+          <View style={styles.bg}>
+            <ScrollView>
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "space-evenly",
+                  marginVertical: SPACING,
+                  marginBottom: SPACING + 32
+                }}
+              >
+                {detailsIcons.map((detail, index) => {
+                  return (
+                    <Animatable.View
+                      key={`${detail.icon}-${index}`}
+                      animation={"bounceIn"}
+                      delay={DURATION + index * 100}
+                      style={{
+                        backgroundColor: detail.color,
+                        width: 64,
+                        aspectRatio: 1,
+                        borderRadius: 32,
+                        justifyContent: "center",
+                        alignItems: "center"
+                      }}
+                    >
+                      <AntDesign name={detail.icon} size={22} color={"white"} />
+                    </Animatable.View>
+                  );
+                })}
+              </View>
+              <View>
+                {item.categories.map((category, index) => {
+                  return (
+                    <Animatable.View
+                      key={category.key}
+                      animation={"fadeInUp"}
+                      delay={DURATION * 2 + index * 200}
+                      style={{ marginVertical: SPACING }}
+                    >
+                      <Text style={styles.title}>{category.title}</Text>
+                      {category.subcats.map((subcat, index) => {
+                        return (
                           <View
+                            key={`${subcat}-${index}`}
                             style={{
-                              height: 8,
-                              aspectRatio: 1,
-                              borderRadius: 4,
-                              backgroundColor: "gold",
-                              marginRight: SPACING
+                              flexDirection: "row",
+                              alignItems: "center",
+                              marginBottom: SPACING / 2,
+                              marginLeft: SPACING
                             }}
-                          />
-                          <Text style={styles.subTitle}>{subcat}</Text>
-                        </View>
-                      );
-                    })}
-                  </Animatable.View>
-                );
-              })}
-            </View>
-          </ScrollView>
-        </View>
+                          >
+                            <View
+                              style={{
+                                height: 8,
+                                aspectRatio: 1,
+                                borderRadius: 4,
+                                backgroundColor: "gold",
+                                marginRight: SPACING
+                              }}
+                            />
+                            <Text style={styles.subTitle}>{subcat}</Text>
+                          </View>
+                        );
+                      })}
+                    </Animatable.View>
+                  );
+                })}
+              </View>
+            </ScrollView>
+          </View>
+        </SharedElement>
       </View>
     </>
   );
-}
+};
 
 const styles = StyleSheet.create({
   name: {
@@ -184,3 +194,23 @@ const styles = StyleSheet.create({
     opacity: 0.8
   }
 });
+
+Detail.sharedElements = (route, otherRoute, showing) => {
+  const { item } = route.params;
+
+  return [
+    {
+      id: `item.${item.key}.bg`
+    },
+    {
+      id: `item.${item.key}.name`
+    },
+    {
+      id: `item.${item.key}.image`
+    },
+    {
+      id: "general.bg"
+    }
+  ];
+};
+export default Detail;
