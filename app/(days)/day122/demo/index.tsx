@@ -9,10 +9,9 @@ import {
   View
 } from "react-native";
 
-import { StatusBar } from "expo-status-bar";
-import { Stack, useRouter } from "expo-router";
 import { faker } from "@faker-js/faker";
 import niceColors from "nice-color-palettes";
+import { NavigationProp } from "@react-navigation/native";
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
 
@@ -178,13 +177,13 @@ export const salions = data.map((item, index) => ({
 const SPACING = 10;
 const ITEM_HEIGHT = SCREEN_HEIGHT * 0.18;
 
-export default function DemoScreen() {
-  const router = useRouter();
-
+export default function DemoScreen({
+  navigation
+}: {
+  navigation: NavigationProp<any, any>;
+}) {
   return (
     <>
-      <Stack.Screen options={{ headerShown: false }} />
-      <StatusBar hidden />
       <SafeAreaView style={{ flex: 1 }}>
         <FlatList
           data={salions}
@@ -198,7 +197,7 @@ export default function DemoScreen() {
               <TouchableOpacity
                 onPress={() => {
                   console.log("item press " + item.key);
-                  router.navigate(`/day122/demo/${item.key}`);
+                  navigation.navigate("Detail", { item });
                 }}
                 style={{
                   marginBottom: SPACING,

@@ -10,7 +10,9 @@ import React from "react";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 import { detailsIcons, salions } from ".";
 import { AntDesign } from "@expo/vector-icons";
-import Animated from "react-native-reanimated";
+import * as Animatable from "react-native-animatable";
+import { NavigationProp } from "@react-navigation/native";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
 const SPACING = 10;
@@ -19,14 +21,18 @@ const TOP_HEADER_HEIGHT = SCREEN_HEIGHT * 0.3;
 
 const DURATION = 400;
 
-export default function Detail() {
-  const { id } = useLocalSearchParams();
-
-  const router = useRouter();
-
-  console.log("id:", id);
-  const item = salions.find((item) => item.key === id);
-
+interface Props
+  extends NativeStackScreenProps<
+    {
+      Home: undefined;
+      Detail: { item: any } | undefined;
+    },
+    "Detail"
+  > {
+  // other props ...
+}
+export default function Detail({ route, navigation }: Props) {
+  const { item } = route.params;
   return (
     <>
       <Stack.Screen
@@ -47,7 +53,7 @@ export default function Detail() {
             zIndex: 2
           }}
           onPress={() => {
-            router.back();
+            navigation.goBack();
           }}
         />
         <View
@@ -74,8 +80,10 @@ export default function Detail() {
             >
               {detailsIcons.map((detail, index) => {
                 return (
-                  <Animated.View
+                  <Animatable.View
                     key={`${detail.icon}-${index}`}
+                    animation={"bounceIn"}
+                    delay={DURATION + index * 100}
                     style={{
                       backgroundColor: detail.color,
                       width: 64,
@@ -86,15 +94,17 @@ export default function Detail() {
                     }}
                   >
                     <AntDesign name={detail.icon} size={22} color={"white"} />
-                  </Animated.View>
+                  </Animatable.View>
                 );
               })}
             </View>
             <View>
-              {item.categories.map((category) => {
+              {item.categories.map((category, index) => {
                 return (
-                  <Animated.View
+                  <Animatable.View
                     key={category.key}
+                    animation={"fadeInUp"}
+                    delay={DURATION * 2 + index * 200}
                     style={{ marginVertical: SPACING }}
                   >
                     <Text style={styles.title}>{category.title}</Text>
@@ -122,7 +132,7 @@ export default function Detail() {
                         </View>
                       );
                     })}
-                  </Animated.View>
+                  </Animatable.View>
                 );
               })}
             </View>
@@ -147,7 +157,7 @@ const styles = StyleSheet.create({
     height: ITEM_HEIGHT * 0.8,
     resizeMode: "contain",
     position: "absolute",
-    top: TOP_HEADER_HEIGHT - ITEM_HEIGHT * 0.8,
+    top: TOP_HEADER_HEIGHT - ITEM_HEIGHT * 0.8 + 10,
     right: SPACING
   },
   bg: {
