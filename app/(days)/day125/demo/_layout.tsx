@@ -1,5 +1,5 @@
 import { Stack as ExpoStack } from "expo-router";
-import { Easing, StatusBar } from "react-native";
+import { Easing } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createSharedElementStackNavigator } from "react-navigation-shared-element";
 import { enableScreens } from "react-native-screens";
@@ -14,10 +14,8 @@ export type RootStackParamList = {
     | {
         item: {
           key: string;
-          location: string;
-          numberOfDays: number;
           image: string;
-          color: string;
+          name: string;
         };
       }
     | undefined;
@@ -51,13 +49,12 @@ const DemoLayout = () => {
   return (
     <>
       <ExpoStack.Screen options={{ headerShown: false }} />
-
       <NavigationContainer independent={true}>
         <Stack.Navigator
           screenOptions={{
             headerShown: false,
             cardStyle: {
-              backgroundColor: "transparent"
+              backgroundColor: "white"
             }
           }}
           initialRouteName="Home"
