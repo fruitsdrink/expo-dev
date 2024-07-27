@@ -5,27 +5,11 @@ import { createSharedElementStackNavigator } from "react-navigation-shared-eleme
 import { enableScreens } from "react-native-screens";
 import HomeScreen from "./index";
 import DetailScreen from "./detail";
+import { RootStackParamList } from "./constants";
 
 enableScreens();
 
-export type PhotoGraphy = {
-  key: string;
-  title: string;
-  description: string;
-  location: string;
-  image: string;
-  user: {
-    name: string;
-    avatar: string;
-    job: string;
-    details: { label: string; value: number }[];
-  };
-};
-
-export type RootStackParamList = {
-  Home: undefined;
-  Detail: { item: PhotoGraphy } | undefined;
-};
+// console.log(JSON.stringify(cars, null, 2));
 
 const Stack = createSharedElementStackNavigator<RootStackParamList>();
 
