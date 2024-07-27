@@ -8,17 +8,23 @@ import DetailScreen from "./detail";
 
 enableScreens();
 
+export type PhotoGraphy = {
+  key: string;
+  title: string;
+  description: string;
+  location: string;
+  image: string;
+  user: {
+    name: string;
+    avatar: string;
+    job: string;
+    details: { label: string; value: number }[];
+  };
+};
+
 export type RootStackParamList = {
   Home: undefined;
-  Detail:
-    | {
-        item: {
-          key: string;
-          image: string;
-          name: string;
-        };
-      }
-    | undefined;
+  Detail: { item: PhotoGraphy } | undefined;
 };
 
 const Stack = createSharedElementStackNavigator<RootStackParamList>();

@@ -1,42 +1,88 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { Dimensions, SafeAreaView, StyleSheet, Text, View } from "react-native";
+import {
+  Dimensions,
+  Image,
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View
+} from "react-native";
 import { RootStackParamList } from "./_layout";
 import { AntDesign } from "@expo/vector-icons";
+import { Masonry, UserCard } from ".";
+import { SharedElement } from "react-navigation-shared-element";
+import * as Animatable from "react-native-animatable";
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
 
 type Props = NativeStackScreenProps<RootStackParamList, "Detail">;
 
-const DetailScreen: React.FC<Props> = ({ navigation, route }) => {
+const DetailScreen = ({ navigation, route }: Props) => {
+  const { item } = route.params;
+
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <View style={styles.container}>
-        <AntDesign
-          name="arrowleft"
-          size={28}
-          color={"#333"}
-          style={{
-            padding: 12,
-            position: "absolute",
-            top: 30,
-            left: 20,
-            zIndex: 2
-          }}
-          onPress={() => {
-            navigation.goBack();
-          }}
+    <View style={styles.container}>
+      <StatusBar hidden />
+      <AntDesign
+        name="arrowleft"
+        size={28}
+        color={"#fff"}
+        style={{
+          padding: 12,
+          position: "absolute",
+          top: 30,
+          left: 20,
+          zIndex: 2
+        }}
+        onPress={() => {
+          navigation.goBack();
+        }}
+      />
+      <SharedElement id={`item.${item.key}.image`}>
+        <Image
+          source={{ uri: item.image }}
+          style={[
+            StyleSheet.absoluteFillObject,
+            { resizeMode: "cover", height: SCREEN_HEIGHT / 2 }
+          ]}
         />
-        <Text>Detail</Text>
-      </View>
-    </SafeAreaView>
+      </SharedElement>
+      <ScrollView
+        contentContainerStyle={{
+          alignItems: "center",
+          paddingTop: SCREEN_HEIGHT / 2 - 100
+        }}
+        scrollEventThrottle={16}
+      >
+        <SharedElement id={`item.${item.key}.userCard`}>
+          <UserCard user={item.user} />
+        </SharedElement>
+        <Animatable.View animation={"fadeInUp"} duration={800} delay={300}>
+          <Masonry />
+        </Animatable.View>
+      </ScrollView>
+    </View>
   );
+};
+
+DetailScreen.sharedElements = (route, otherRoute, showing) => {
+  const { item } = route.params;
+  return [
+    {
+      id: `item.${item.key}.image`
+    },
+    {
+      id: `item.${item.key}.userCard`
+    }
+  ];
 };
 
 export default DetailScreen;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#000"
+    flex: 1
   }
 });

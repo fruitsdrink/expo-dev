@@ -7,12 +7,17 @@ import {
   View,
   Image,
   SafeAreaView,
-  FlatList
+  FlatList,
+  StyleProp,
+  ViewStyle,
+  Animated
 } from "react-native";
-import { RootStackParamList } from "./_layout";
+import { PhotoGraphy, RootStackParamList } from "./_layout";
 import { faker } from "@faker-js/faker";
 import MasonryList from "@react-native-seoul/masonry-list";
-import { useEffect, useRef } from "react";
+import TouchableScale from "react-native-touchable-scale";
+import React from "react";
+import { SharedElement } from "react-navigation-shared-element";
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
 
@@ -55,12 +60,13 @@ type User = {
 type UserProps = {
   user: User;
 };
-const UserCard = ({ user }: UserProps) => {
+export const UserCard = ({ user }: UserProps) => {
   return (
     <View
       style={{
         padding: 20,
-        backgroundColor: "#e6e6e6"
+        backgroundColor: "#fff",
+        width: SCREEN_WIDTH * 0.9
       }}
     >
       <View
@@ -146,27 +152,69 @@ const photographyImages: {
   };
 });
 
-const PhotographyItemDetail = ({ data }: { data: any[] }) => {
+const PhotographyItemDetail = ({
+  data,
+  style,
+  scrollX
+}: {
+  data: PhotoGraphy[];
+  style: StyleProp<ViewStyle>;
+  scrollX: Animated.Value;
+}) => {
   return (
-    <View>
+    <View style={style}>
       {data.map((item, index) => {
+        const inputRange = [
+          (index - 0.5) * SCREEN_WIDTH,
+          index * SCREEN_WIDTH,
+          (index + 0.5) * SCREEN_WIDTH
+        ];
+        const opacity = scrollX.interpolate({
+          inputRange,
+          outputRange: [0, 1, 0],
+          extrapolate: "clamp"
+        });
+        const translateY = scrollX.interpolate({
+          inputRange,
+          outputRange: [10, 0, 10]
+        });
+
         return (
-          <View
+          <Animated.View
             key={`detail.${item.key}`}
-            style={{
-              position: "absolute"
-            }}
+            style={[
+              {
+                position: "absolute",
+                opacity,
+                transform: [
+                  {
+                    translateY
+                  }
+                ]
+              }
+            ]}
           >
-            <Text style={{ color: "white" }}>{item.title}</Text>
-            <Text style={{ color: "white" }}>{item.description}</Text>
-          </View>
+            <Text
+              style={{
+                color: "white",
+                marginBottom: 12,
+                fontSize: 22,
+                fontWeight: "700"
+              }}
+            >
+              {item.title}
+            </Text>
+            <Text style={{ color: "#fff", fontSize: 14, opacity: 0.7 }}>
+              {item.description}
+            </Text>
+          </Animated.View>
         );
       })}
     </View>
   );
 };
 
-const Masonry = () => {
+export const Masonry = () => {
   return (
     <MasonryList
       data={photographyImages}
@@ -174,8 +222,9 @@ const Masonry = () => {
       numColumns={2}
       showsVerticalScrollIndicator={false}
       style={{
-        flex: 1
-        // width: SCREEN_WIDTH
+        flex: 1,
+        width: SCREEN_WIDTH * 0.9 + 12,
+        alignSelf: "center"
       }}
       contentContainerStyle={{
         paddingVertical: 12
@@ -207,28 +256,46 @@ const Masonry = () => {
 
 type Props = NativeStackScreenProps<RootStackParamList, "Home">;
 const HomeScreen: React.FC<Props> = ({ navigation }) => {
+  const scrollX = React.useRef(new Animated.Value(0)).current;
+
   return (
     <View style={styles.container}>
-      <FlatList
+      <Animated.FlatList
         data={photographys}
         keyExtractor={(item) => item.key}
         horizontal
         showsHorizontalScrollIndicator={false}
-        snapToInterval={SCREEN_WIDTH}
+        pagingEnabled
+        scrollEventThrottle={16}
+        onScroll={Animated.event(
+          [
+            {
+              nativeEvent: {
+                contentOffset: { x: scrollX }
+              }
+            }
+          ],
+          { useNativeDriver: true }
+        )}
         renderItem={({ item }) => {
           return (
             <View
               style={{ flex: 1, width: SCREEN_WIDTH, height: SCREEN_HEIGHT }}
             >
-              <Image
-                source={{ uri: item.image }}
-                style={[
-                  StyleSheet.absoluteFillObject,
-                  {
-                    resizeMode: "cover"
-                  }
-                ]}
-              />
+              <SharedElement
+                id={`item.${item.key}.image`}
+                style={[StyleSheet.absoluteFillObject]}
+              >
+                <Image
+                  source={{ uri: item.image }}
+                  style={[
+                    StyleSheet.absoluteFillObject,
+                    {
+                      resizeMode: "cover"
+                    }
+                  ]}
+                />
+              </SharedElement>
               <View
                 style={{
                   position: "absolute",
@@ -236,11 +303,33 @@ const HomeScreen: React.FC<Props> = ({ navigation }) => {
                   alignSelf: "center"
                 }}
               >
-                <UserCard user={item.user} />
+                <TouchableScale
+                  tension={20}
+                  friction={7}
+                  activeScale={0.9}
+                  useNativeDriver
+                  onPress={() => {
+                    navigation.navigate("Detail", { item });
+                  }}
+                >
+                  <SharedElement id={`item.${item.key}.userCard`}>
+                    <UserCard user={item.user} />
+                  </SharedElement>
+                </TouchableScale>
               </View>
             </View>
           );
         }}
+      />
+      <PhotographyItemDetail
+        data={photographys}
+        style={{
+          position: "absolute",
+          top: 12 * 6,
+          width: SCREEN_WIDTH * 0.84,
+          alignSelf: "center"
+        }}
+        scrollX={scrollX}
       />
     </View>
   );

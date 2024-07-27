@@ -100,6 +100,7 @@
     "react-native-skia-gesture": "^0.3.5",
     "react-native-svg": "15.2.0",
     "react-native-swiper": "^1.6.0",
+    "react-native-touchable-scale": "^2.2.0",
     "react-native-vision-camera": "^4.0.4",
     "react-native-web": "~0.19.11",
     "react-navigation-shared-element": "^3.1.3",
