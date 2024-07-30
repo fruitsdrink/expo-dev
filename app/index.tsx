@@ -664,6 +664,11 @@ const days: DayItem[] = [
     day: 131,
     title: "Telegram Dynamic Island Scroll Animation Skia",
     link: "https://youtu.be/l_svfAfbmFQ?si=sxXkEbYFkaie8quT"
+  },
+  {
+    day: 132,
+    title: "Pagination with FlatList",
+    link: "https://www.youtube.com/live/i4jKoTlSqvI?si=4xSwEarlsaN9E3Kj"
   }
 ];
 
