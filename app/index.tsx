@@ -659,6 +659,11 @@ const days: DayItem[] = [
     day: 130,
     title: "Scratch Card With Skia From Scratch",
     link: "https://youtu.be/RJ39xhgWSL4?si=2rM4SExOuHW8d10A"
+  },
+  {
+    day: 131,
+    title: "Telegram Dynamic Island Scroll Animation Skia",
+    link: "https://youtu.be/l_svfAfbmFQ?si=sxXkEbYFkaie8quT"
   }
 ];
 
