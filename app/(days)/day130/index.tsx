@@ -1,9 +1,9 @@
 import { DayHome } from "@/components";
 
 const desc = `
-# React Native Shared Element Transition React Navigation V5 - Episode 9
-未完成
-[youtube](https://youtu.be/6XxpUhQqpjY?si=zcu6NdifP8hiGfHF)
+# React Native Custom Scratch Card With Skia From Scratch
+
+[youtube](https://youtu.be/RJ39xhgWSL4?si=2rM4SExOuHW8d10A)
 
 ## 技术点
 
@@ -16,7 +16,7 @@ export default function DayScreen() {
       description={desc}
       buttons={[
         {
-          link: "/day129/demo"
+          link: "/day130/demo"
         }
       ]}
     />
