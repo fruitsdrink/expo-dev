@@ -5,7 +5,8 @@ const desc = `
 
 [youtube](https://www.youtube.com/live/i4jKoTlSqvI?si=4xSwEarlsaN9E3Kj)
 
-## 技术点
+## 相关文档
+- https://reactnative.dev/docs/optimizing-flatlist-configuration
 
 `;
 
